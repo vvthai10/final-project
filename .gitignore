@@ -9,6 +9,10 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/Assets/Resources Map/Abandoned_Asylum
+/Assets/Resources Map/Door Animation
+/Assets/Resources Map/LowPolyLight
+/Assets/Resources Map/Old_Radio
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
