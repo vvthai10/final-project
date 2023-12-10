@@ -8,6 +8,7 @@ namespace PlayerControl
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float AnimBlendSpeed = 8.9f;
+        public static PlayerController instance;
         private Rigidbody _playerRigidBody;
         private InputManager _inputManager;
         private Animator _animator;
@@ -20,6 +21,10 @@ namespace PlayerControl
         private const float _runSpeed = 6f;
         private Vector2 _currentVelocity;
 
+        private void Awake()
+        {
+            instance = this;
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -28,6 +33,15 @@ namespace PlayerControl
             _inputManager = GetComponent<InputManager>();
             _xVelHash = Animator.StringToHash("X_Velocity");
             _yVelHash = Animator.StringToHash("Y_Velocity");
+        }
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+        private void FixedUpdate()
+        {
+            Move();
         }
 
         private void Move()
@@ -52,16 +66,10 @@ namespace PlayerControl
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
         }
 
-        // Update is called once per frame
-        void Update()
+        public Vector3 GetEulerAngles()
         {
-
+            return transform.localRotation.eulerAngles;
         }
-        private void FixedUpdate()
-        {
-            Move();
-        }
-
     }
 
 }

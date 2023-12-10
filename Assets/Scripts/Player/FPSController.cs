@@ -9,16 +9,21 @@ namespace PlayerControl
 
     public class FPSController : MonoBehaviour
     {
+        public static FPSController instance;
         private InputManager _inputManager;
         [SerializeField] private Transform CameraRoot;
         [SerializeField] private Transform Camera;
         [SerializeField] private float UpperLimit = -40f;
-        [SerializeField] private float BottomLimit = 70f;
-        [SerializeField] private float MouseSensitivity = 21.9f;
+        [SerializeField] private float BottomLimit = 50f;
+        [SerializeField] private float MouseSensitivity = 18.9f;
 
         private float _xRotation;
         private Rigidbody _playerRigidBody;
 
+        private void Awake()
+        {
+            instance = this;
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -50,6 +55,11 @@ namespace PlayerControl
         private void LateUpdate()
         {
             CameraMovement();
+        }
+
+        public float XRotation()
+        {
+            return _xRotation;
         }
     }
 
