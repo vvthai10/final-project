@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2d6263fed933c104a8e28fff0aa4e072
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Louis George Cafe Light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d72d8ca142a60984690994ca5ce8bc61, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
