@@ -96,7 +96,7 @@ namespace PlayerControl
             else
             {
                 _animator.SetTrigger(_deathHash);
-                Manager.TextUIManager.instance.ShowUI(deathText, 5f);
+                Manager.UIManager.instance.ShowUI(deathText, 5f);
             }
         }
     }

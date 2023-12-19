@@ -46,7 +46,7 @@ namespace CharacterControl
                 
                 if (_pickupText && hitInfo.rigidbody.name == "Flashlight")
                 {
-                    Manager.TextUIManager.instance.ShowUI(_pickupText, 0);
+                    Manager.UIManager.instance.ShowUI(_pickupText, 0);
                 }
             }
             _raycastHit = hitInfo; 
