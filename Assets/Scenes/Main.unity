@@ -4679,7 +4679,7 @@ PrefabInstance:
       objectReference: {fileID: 804685689}
     - target: {fileID: 4627843726570508628, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4627843726570508628, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: Instruction
@@ -4859,7 +4859,7 @@ PrefabInstance:
       objectReference: {fileID: 1826977832}
     - target: {fileID: 8659001743702755238, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8659001743702755238, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: Instruction
@@ -7573,6 +7573,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 60.000004
       objectReference: {fileID: 0}
+    - target: {fileID: 1209017503639443124, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
+      propertyPath: near clip plane
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 2806930030912940897, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
       propertyPath: _switchFlashModeText
       value: 
@@ -7604,6 +7608,10 @@ PrefabInstance:
     - target: {fileID: 6513889054698277297, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513889054698277297, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.253
       objectReference: {fileID: 0}
     - target: {fileID: 7259474779806513521, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
       propertyPath: m_Name
