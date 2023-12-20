@@ -1,13 +1,13 @@
 using Manager;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace PlayerControl
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float AnimBlendSpeed = 8.9f;
         public static PlayerController instance;
         private Rigidbody _playerRigidBody;
         private InputManager _inputManager;
@@ -20,10 +20,25 @@ namespace PlayerControl
         private const float _walkSpeed = 2f;
         private const float _runSpeed = 6f;
         private Vector2 _currentVelocity;
+        private List<Vector3> _climbDirections;
+
+        [Header("Player Animation Blend Speed: ")]
+        [SerializeField] private float AnimBlendSpeed = 8.9f;
+
+        [Header("Player Step Climb: ")]
+        [SerializeField] GameObject stepRayLower;
+        [SerializeField] GameObject stepRayUpper;
+        [SerializeField][Range(0.02f, 0.2f)] float stepSmooth = 0.1f;
 
         private void Awake()
         {
             instance = this;
+            _climbDirections = new List<Vector3>()                
+            { 
+                transform.TransformDirection(Vector3.forward),
+                transform.TransformDirection(1.5f, 0, 1),
+                transform.TransformDirection(-1.5f, 0, 1)
+            };
         }
         // Start is called before the first frame update
         void Start()
@@ -42,6 +57,7 @@ namespace PlayerControl
         private void FixedUpdate()
         {
             Move();
+            StepClimb();
         }
 
         private void Move()
@@ -66,6 +82,30 @@ namespace PlayerControl
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
         }
 
+        private void StepClimb()
+        {
+            RaycastHit hitLower, hitUpper;
+            foreach (var direction in _climbDirections)
+            {
+                if (Physics.Raycast(
+                        stepRayLower.transform.position,
+                        direction,
+                        out hitLower,
+                        0.1f)
+                )
+                {
+                    if (!Physics.Raycast(
+                            stepRayUpper.transform.position,
+                            direction,
+                            out hitUpper,
+                            0.2f)
+                        )
+                    {
+                        _playerRigidBody.position -= new Vector3(0f, -stepSmooth, 0f);
+                    }
+                }
+            }
+        }
         public Vector3 GetEulerAngles()
         {
             return transform.localRotation.eulerAngles;

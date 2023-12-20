@@ -53,7 +53,7 @@ namespace Manager
             _runAction.canceled += onRun;
 
 
-            _interactAction.performed += _ => PhysicsPickUp.instance.PickUp();
+            _interactAction.performed += _ => PhysicsInteract.instance.Interact();
 
             _flashAction.performed += _ => FlashlightController.instance.Switch();
 
