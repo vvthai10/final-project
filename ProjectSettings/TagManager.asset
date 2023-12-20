@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WhiteLight
   - Enemy
+  - Padlock
   layers:
   - Default
   - TransparentFX
