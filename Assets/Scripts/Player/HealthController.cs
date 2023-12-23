@@ -47,7 +47,7 @@ namespace PlayerControl
             }
             if (canRegen)
             {
-                if(_currentHealth<=maxHealth - 0.01)
+                if(_currentHealth <= maxHealth - 0.01)
                 {
                     _currentHealth += Time.deltaTime * regenRate;
                     UpdateHealth();

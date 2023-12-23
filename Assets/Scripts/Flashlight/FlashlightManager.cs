@@ -22,7 +22,6 @@ public class FlashlightManager : MonoBehaviour
         else
             Manager.AudioManager.instance.PlayOneShot("SwitchFlashlightOff");
         _whiteLight.gameObject.SetActive(_currentState);
-
     }
 
     public bool LoadFlashlight()
@@ -30,7 +29,6 @@ public class FlashlightManager : MonoBehaviour
         GameObject flashlight = GameObject.Find("Flashlight");
         if (!flashlight) return false;
         _whiteLight = flashlight.transform.GetChild(0);
-
         flashlight.layer = LayerMask.NameToLayer("Default");
         _whiteLight.gameObject.layer = LayerMask.NameToLayer("Default");
         return true;

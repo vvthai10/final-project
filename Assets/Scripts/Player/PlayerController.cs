@@ -22,6 +22,9 @@ namespace PlayerControl
         private Vector2 _currentVelocity;
         private List<Vector3> _climbDirections;
 
+        public bool IsWalking { get; set; }
+        public bool IsRunning { get; set; }
+
         [Header("Player Animation Blend Speed: ")]
         [SerializeField] private float AnimBlendSpeed = 8.9f;
 
@@ -49,6 +52,7 @@ namespace PlayerControl
             _xVelHash = Animator.StringToHash("X_Velocity");
             _yVelHash = Animator.StringToHash("Y_Velocity");
         }
+
         // Update is called once per frame
         void Update()
         {
@@ -63,21 +67,30 @@ namespace PlayerControl
         private void Move()
         {
             if(!_hasAnimator) return;
-            float targetSpeed = _inputManager.Run ? _runSpeed : _walkSpeed;
+            float targetSpeed = _walkSpeed;
+            IsWalking = true;
+            IsRunning = _inputManager.Run && PlayerStamina.instace.AbleToRun;
+            if (IsRunning)
+            {
+                targetSpeed = _runSpeed;
+            }
             if (_inputManager.Move == Vector2.zero)
             {
                 targetSpeed = 0f;
+                IsRunning = IsWalking = false;
             }
             _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _inputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
             _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, _inputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
             float xVecDiff = _currentVelocity.x - _playerRigidBody.velocity.x;
             float zVecDiff = _currentVelocity.y - _playerRigidBody.velocity.z;
+            
+            // Add force
             _playerRigidBody.AddForce(
-                transform.TransformVector(new Vector3(xVecDiff, 0, zVecDiff)),
-                ForceMode.VelocityChange
+                    transform.TransformVector(new Vector3(xVecDiff, 0, zVecDiff)),
+                    ForceMode.VelocityChange
                 );
 
-            // set animator
+            // Set animator
             _animator.SetFloat(_xVelHash, _currentVelocity.x); 
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
         }
