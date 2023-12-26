@@ -316,8 +316,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101867978}
   m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00420014, y: 1.0730729, z: 0.0039677187}
-  m_LocalScale: {x: 1.2167393, y: 2.1880553, z: 0.19972306}
+  m_LocalPosition: {x: -0.00420014, y: 1.0730729, z: 0.0691}
+  m_LocalScale: {x: 1.2167393, y: 2.1880553, z: 0.06942374}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 806765218}
@@ -1254,11 +1254,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 24
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -2656,15 +2656,258 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversations:
   - paragraph:
-    - The name Heylel, meaning "morning star" (or, in Latin, Lucifer), was a name
-      for Attar, the god of the planet Venus in Canaanite mythology, who attempted
-      to scale the walls of the heavenly city, but was vanquished by the god of the
-      sun.
-    - ' The name is used in Isaiah 14:12 in metaphorical reference to the king of
-      Babylon. I repeat, Isaiah 1 4 1 2, 1 4 1 2'
+    - 'Good morning, wonderful listeners! This is your host John Smith, and you''re
+      tuned in to "Daily Highlights" on Harmony Radio. Let''s kickstart your day
+      with the latest updates and a splash of good vibes. '
+    - ' But first, let''s take a peek at today''s weather. What can we expect, you
+      ask? Let''s find out. '
+    - 'Today''s forecast is looking bright and cheerful, with a high of 78 degrees
+      and plenty of sunshine. Perfect weather to seize the day! Now, let''s dive
+      into the top stories. '
+    - 'In our local news roundup, a new community garden is blooming in the heart
+      of downtown. Residents are coming together to cultivate a green oasis for everyone
+      to enjoy.  '
+    - 'Zooming out to the national scene, government officials announce a major infrastructure
+      project that promises to improve transportation and boost the economy. Exciting
+      times ahead! '
+    - 'And for our global audience, here''s a snapshot of diplomatic efforts for
+      peace in the Middle East. Leaders from various nations are converging to find
+      common ground. The world never sleeps, and neither do we in bringing you the
+      updates. '
+    - 'Before we wrap up, let me leave you with today''s thought: "Embrace the day
+      with open arms; you never know what delightful surprises it may bring.'
+    - 'That''s a wrap for "Daily Highlights." Thank you for joining me today. Stay
+      tuned for more fantastic tunes and engaging discussions right here on Harmony
+      Radio.  '
+    - ' Until next time, take care, and keep shining bright. This is John Smith,
+      signing off.  '
+  - paragraph:
+    - Welcome, dear listeners, to the shadows that linger in the corners of your
+      fears. I am your guide through the abyss, the whisper in the dark, and this
+      is "Ephemeral Desires" on Desolation Radio.
+    - " In the twisted tapestry of existence, there lies an insidious force\u2014a
+      siren's call that beckons from the deepest recesses of the soul. It preys upon
+      the vulnerabilities that hide within, tempting us to succumb to the darkness. "
+    - 'Lust, a sinister specter that dances on the edges of our consciousness. In
+      this realm of the macabre, it takes a form more malevolent than one could fathom.
+      A force that draws us into a web of desires, ensnaring our very essence in
+      its tendrils. '
+    - 'But beware, for every temptation has consequences. In this haunted narrative,
+      yielding to the allure of lust reveals a world shrouded in despair. A place
+      where shadows birth shadows, and the very fabric of reality begins to unravel. '
+    - ' Imagine a twisted reality where the consequences of forbidden desires manifest.
+      The once familiar becomes an otherworldly nightmare, and each step forward
+      leads deeper into a realm of perpetual torment. '
+    - 'Yet, even in the darkest corners of our psyche, there exists a glimmer of
+      hope. To resist the seduction of malevolent desires is to grasp a flicker of
+      light within the abyss. It is a test of willpower, a battle for the soul. '
+    - As we conclude this ominous journey, remember that the choices made in the
+      haunted corridors of the mind echo in eternity. This is "Ephemeral Desires"
+      on Desolation Radio, where the veil between reality and nightmare is thin.
+    - 'Until next we meet in the shadows, this is your guide through the abyss, signing
+      off.  '
+  - paragraph:
+    - Welcome, weary souls, to the banquet of the macabre. I am your spectral host,
+      the whisperer in the shadows, and you have stumbled upon "Ravenous Reveries"
+      on Desolation Radio.
+    - "In the hollow echoes of eternity, there lies a feast of insatiable hunger\u2014an
+      appetite that devours not only the corporeal but feasts upon the very essence
+      of existence. I invite you to partake in the feast of your darkest desires. "
+    - ' Gluttony, a ravenous craving that transcends the mundane. In this cryptic
+      narrative, it transforms into an entity, a grotesque force that devours the
+      boundaries between indulgence and damnation. '
+    - Picture a banquet where the feast never ends, where the table is laden with
+      desires that stretch beyond mortal comprehension. The gluttonous banquet becomes
+      a theater of the grotesque, and each bite taken binds you tighter to a nightmarish
+      fate.
+    - But beware, for every morsel consumed in the name of excess carries a cost.
+      In this haunted odyssey, the consequences of gluttony manifest in ways that
+      defy reason. The very fabric of reality warps, and the feast becomes an eternal
+      gorge in the void.
+    - ' Imagine a world where the insatiable appetite unleashes unspeakable horrors.
+      The grotesque feast unfolds, revealing the grotesque truth that hunger, when
+      left unchecked, devours not just the body but the soul itself.'
+    - Yet, within this realm of eternal hunger, there exists a sliver of defiance.
+      To resist the insatiable appetite is to grasp a shard of strength within the
+      abyss. It is a battle against the devouring darkness, a struggle for the preservation
+      of one's essence.
+    - As we conclude this harrowing journey, remember that the choices made at the
+      banquet of the damned echo through the corridors of eternity. This is "Ravenous
+      Reveries" on Desolation Radio, where the boundaries between feast and famine
+      blur.
+    - 'Until next we traverse the shadows, I am your spectral host, signing off. '
+  - paragraph:
+    - Welcome, intrepid souls, to the abyss of desire. I am the phantom orchestrator
+      of malevolence, the voice in the shadows, and you've ventured into the realm
+      of "Covetous Whispers" on Desolation Radio.
+    - "In the haunted echoes of eternity, there exists a desire that transcends mere
+      materialism\u2014a hunger that devours not only the tangible but consumes the
+      very fabric of morality. Join me in this journey into the heart of avarice. "
+    - Greed, an insidious force that transforms into an entity, a malevolent presence
+      that haunts the corridors of human desire. In this dark narrative, it becomes
+      an insatiable hunger, an insidious yearning that beckons towards the abyss.
+    - 'Picture a realm where treasures abound, where every material possession becomes
+      a testament to the insatiable appetite for more. The pursuit of wealth transforms
+      into a nightmarish odyssey, and each acquisition binds the soul tighter to
+      a chilling fate. '
+    - Yet, every coin flipped in the name of avarice carries a cost. In this unholy
+      theater, the consequences of greed manifest in ways beyond mortal comprehension.
+      The very air thickens with the stench of moral decay, and the pursuit of abundance
+      leads to an abundance of despair.
+    - Envision a world where the pursuit of riches unleashes unspeakable horrors.
+      The once glittering treasures become conduits for malevolent forces, and the
+      gilded path becomes a descent into a bottomless pit of torment.
+    - Amidst this vortex of insatiable want, there exists a flicker of redemption.
+      To resist the ceaseless hunger for more is to reclaim a fragment of the soul.
+      It is a battle against the suffocating darkness, a quest for the preservation
+      of one's essence.
+    - As we conclude this journey into the depths of avarice, remember that the choices
+      made in the pursuit of fortune echo through the corridors of eternity. This
+      is "Covetous Whispers" on Desolation Radio, where the line between abundance
+      and affliction blurs.
+    - Until next we navigate the shadows, I am your phantom orchestrator, signing
+      off.
+  - paragraph:
+    - Greetings, wanderers of the enigmatic night. I am the spectral guide through
+      the twilight realms, the whisperer in the dormant corridors, and you've entered
+      the realm of "Languid Whispers" on Desolation Radio.
+    - "In the hushed stillness of oblivion, there exists a lethargy that transcends
+      mere idleness\u2014a torpor that seeps into the very essence of existence.
+      Join me in this exploration of the heart of inaction."
+    - Sloth, a spectral force that takes the form of a suffocating lethargy, a somnolent
+      presence that haunts the recesses of human inertia. In this dark narrative,
+      it becomes an oppressive weight, a stifling silence that echoes through the
+      corridors of time.
+    - Envision a realm where time moves at a languid pace, where every step becomes
+      a journey through the murky waters of apathy. The pursuit of rest transforms
+      into a nightmarish slumber, and each moment of indolence binds the soul tighter
+      to a chilling fate.
+    - Yet, every wasted breath in the name of sloth carries a cost. In this spectral
+      theater, the consequences of inaction manifest in ways beyond mortal comprehension.
+      The very air thickens with the weight of opportunities lost, and the pursuit
+      of lethargy leads to an abundance of despair.
+    - Picture a world where the pursuit of rest unleashes unspeakable horrors. The
+      once soothing moments of repose become gateways to malevolent forces, and the
+      slumbering path becomes a descent into a bottomless pit of stagnation.
+    - Amidst this twilight of indolence, there exists the faint glimmer of awakening.
+      To resist the seductive embrace of inertia is to reclaim a sliver of vitality.
+      It is a battle against the suffocating shadows, a quest for the revival of
+      one's essence.
+    - As we conclude this journey into the depths of lethargy, remember that the
+      choices made in the pursuit of rest echo through the corridors of existence.
+      This is "Languid Whispers" on Desolation Radio, where the line between repose
+      and affliction blurs.
+    - Until next we traverse the dormant realms, I am your spectral guide, signing
+      off.
+  - paragraph:
+    - Welcome, restless souls, to the abyssal echoes of "Wrath Unleashed" on Desolation
+      Radio. I am the voice that pierces through the anguished screams, the harbinger
+      of unrestrained fury.
+    - 'In the shadows where malevolence thrives, there exists a tempest of wrath,
+      a force that blurs the line between the mortal coil and the infernal abyss.
+      Join me as we navigate the stormy seas of vengeance. '
+    - Wrath, a storm that brews in the crucible of fury, an unrelenting force that
+      seeks to devour everything in its path. In this unholy narrative, anger is
+      not a mere emotion but a primal surge, a cataclysmic power that reshapes the
+      fabric of existence.
+    - 'Envision a world where the echoes of rage reverberate through the very foundations
+      of reality. The tempest of wrath, once unleashed, becomes a relentless force,
+      tearing asunder the veil between the mortal realm and the realms beyond. '
+    - 'Every ember of anger fuels the inferno of this malevolent force. As wrath
+      consumes reason, the once-familiar landscapes morph into a nightmarish conflagration,
+      where every step forward is a descent into the abyss. '
+    - Picture a reality where unbridled anger gives rise to grotesque manifestations,
+      where the very air crackles with the seething energy of vengeance. The pursuit
+      of retribution transforms the world into a theater of chaos, and every heartbeat
+      resonates with the drumming of impending doom.
+    - Yet, within the calamity lies a reckoning. The pursuit of wrath exacts a toll
+      that transcends the boundaries of mortal understanding. The line between perpetrator
+      and victim blurs, and the quest for vengeance becomes a descent into an abyss
+      that knows no end.
+    - As we conclude this descent into the maelstrom of wrath, remember that the
+      choices made in the pursuit of retribution echo through the caverns of existence.
+      This is "Wrath Unleashed" on Desolation Radio, where the line between anger
+      and annihilation fades.
+    - Until next we navigate the stormy seas, I am your harbinger of wrath, signing
+      off.
+  - paragraph:
+    - Greetings, lost souls, as we embark on a haunting journey into the abyss of
+      "Envy's Embrace" on Desolation Radio. I am the whisper that dances on the edges
+      of covetous shadows, your guide through the envious labyrinth.
+    - Envy, the insidious specter that festers in the shadows, a venomous emotion
+      that twists the very fabric of reality. Join me as we delve into the realms
+      where desire becomes a haunting curse.
+    - In the spectral twilight where shadows linger, envy takes form. It's not merely
+      a longing for what others possess; it's a malevolent force that transforms
+      desire into an unquenchable thirst, a thirst that can never be sated.
+    - Envision a world where the echoes of jealousy whisper through the corridors
+      of the forsaken. The tendrils of envy weave a tapestry of illusions, where
+      the line between what is real and what is craved blurs into an alluring mirage.
+    - Every stolen glance, every whispered secret, fuels the poisoned yearning that
+      festers within the heart of envy. The desire to possess, to consume, mutates
+      into a hunger that devours the very soul, leaving only the bitter taste of
+      resentment.
+    - Picture a reality where mirrors don't reflect one's image but instead reveal
+      distorted versions of what one covets. The halls of envy are adorned with shattered
+      reflections, where every step forward fractures the self in pursuit of the
+      unattainable.
+    - Within this realm of covetous phantoms, envy births apparitions of desires
+      never meant to be fulfilled. These specters, driven by insatiable hunger, haunt
+      the desolate landscapes, forever seeking solace in the unattainable.
+    - Yet, in the pursuit of envy, victory is hollow. The spoils claimed in the name
+      of covetous desire crumble to dust. The price paid for the pursuit of another's
+      fortune is the forfeiture of one's own soul.
+    - 'As we conclude this journey through the haunting corridors of envy, remember
+      that the shadows cast by jealousy linger long after the twilight fades. This
+      is "Envy''s Embrace" on Desolation Radio, where desire becomes a haunting lament. '
+    - Until next we traverse the envious labyrinth, I am your guide through the shadows,
+      signing off.
+  - paragraph:
+    - Welcome, weary souls, to the realm where shadows dance with the intoxicating
+      flames of vanity. I am the echo of pride that resonates through the corridors
+      of eternity, your guide through the tapestry of "Pride's Perdition" on Desolation
+      Radio.
+    - 'Pride, the ethereal sin that birthed the fallen, an elusive tempest that winds
+      through the echoes of Lucifer''s rebellion. Join me as we unravel the threads
+      of desire that weave together pride and the fallen one. '
+    - In the shadowy depths where echoes of rebellion linger, pride takes root. It's
+      not a mere celebration of self but a malevolent force that, when consumed,
+      transforms into the haunting rebellion that echoes through the annals of time.
+    - Envision a world where the lamentations of the fallen reverberate through the
+      void. Lucifer, the morning star whose radiance succumbed to the intoxicating
+      allure of pride, became the architect of his own demise, forever casting shadows
+      on the realms below.
+    - Picture the allure of temptation, a whisper that beckons the soul to ascend
+      beyond its destined place. Lucifer, the whisperer, weaves a tapestry of pride,
+      inviting the lost to dance on the precipice of grandiosity.
+    - In the celestial mirrors that once reflected divine grace, pride distorts the
+      visage into a shattered reflection. Lucifer, the mirror-bearer, showcases the
+      allure of self-exaltation, only to reveal fractured images that crumble in
+      the face of an insatiable ego.
+    - Every celestial descent fueled by pride echoes with the triumphant footsteps
+      of the fallen. Lucifer, the sovereign of the prideful, descends into the depths,
+      a symphony of wings turned to echoes and a crown of stars transformed into
+      ashes.
+    - Yet, in the throne room of pride, victory is a hollow scepter. The sovereigns
+      of vanity may wear crowns of ethereal gold, but the jewels are forged from
+      the tears of the fallen, and the throne is built upon the shattered dreams
+      of those who dared to ascend too high.
+    - As we conclude this journey through the tapestry of "Pride's Perdition," remember
+      that the celestial echoes of Lucifer's rebellion linger in the corridors of
+      pride. This is Desolation Radio, where the flames of vanity cast shadows on
+      the proud.
+    - 'Until next we traverse the tapestry of sin, I am your guide through the shadows,
+      signing off. '
   index: 0
   audioClips:
-  - {fileID: 8300000, guid: d79234b67290bb14c82eae496b268ab7, type: 3}
+  - {fileID: 8300000, guid: 90f9c660988467b40b457bde3082476a, type: 3}
+  - {fileID: 8300000, guid: d7df063325e3a7a418aeaa18965b87db, type: 3}
+  - {fileID: 8300000, guid: 7366236388063e34b83c2e5919090065, type: 3}
+  - {fileID: 8300000, guid: 757d63507b7da244198714b8c54ee570, type: 3}
+  - {fileID: 8300000, guid: b6ac4c78a47c3c84187941d127b0f2d9, type: 3}
+  - {fileID: 8300000, guid: 1a91a191289cc9249b0b94dcd66ac6a1, type: 3}
+  - {fileID: 8300000, guid: aa5603b58737a874284b7840fe350cec, type: 3}
+  - {fileID: 8300000, guid: 2986ae037fb0ba84bb4b2022c01ad301, type: 3}
   dialogText: {fileID: 355529129}
   audioSource: {fileID: 691746351}
 --- !u!4 &616905472 stripped
@@ -2946,7 +3189,7 @@ AudioSource:
   Priority: 165
   DopplerLevel: 0.49
   MinDistance: 1
-  MaxDistance: 6
+  MaxDistance: 11
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
