@@ -15,6 +15,8 @@ public class DialogueController : MonoBehaviour
 
     public TextMeshProUGUI dialogText;
     public AudioSource audioSource;
+
+    private IEnumerator curScriptPlay;
     void Start()
     {
         isSoundPlaying = new bool[conversations.Length];
@@ -48,6 +50,15 @@ public class DialogueController : MonoBehaviour
     {
         if(isGoToTheNextLoop())
         {
+            if(audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                OnFinished();
+                if(curScriptPlay != null)
+                {
+                    StopCoroutine(curScriptPlay);
+                }
+            }
             index++;
         }
     }
@@ -71,13 +82,15 @@ public class DialogueController : MonoBehaviour
     {
         dialogText.text = "";
         float waitTime = calculateShowTextSpeech();
+        yield return new WaitForSeconds(4.32f);
         foreach (string paragraph in conversation.paragraph)
         {
             dialogText.text = "";
             
-            foreach (char letter in paragraph.ToCharArray())
+            foreach (string letter in paragraph.Split(' '))
             {
                 dialogText.text += letter;
+                dialogText.text += " ";
                 yield return new WaitForSeconds(waitTime);
             }
         }
@@ -87,7 +100,8 @@ public class DialogueController : MonoBehaviour
 
     private void ShowDialogue(Conversation conversation)
     {
-        StartCoroutine(ShowCo(conversation));
+        curScriptPlay = ShowCo(conversation);
+        StartCoroutine(curScriptPlay);
     }
     private void ClearText()
     {
@@ -101,7 +115,7 @@ public class DialogueController : MonoBehaviour
         float numberOfLetter = 0;
         foreach (var item in conversations[index].paragraph)
         {
-            var size = item.ToCharArray().Length;
+            var size = item.Split(' ').Length;
             numberOfLetter += size;
         }
         return lengthInSecOfAudio / numberOfLetter;
