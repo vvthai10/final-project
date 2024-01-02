@@ -7,6 +7,7 @@ public class PressKeyOpenDoor : MonoBehaviour
 {
     public GameObject Instruction;
     public GameObject AnimeObject;
+    public GameObject OtherAnimeObject;
     public GameObject ThisTrigger;
     // public AudioSource DoorOpenSound;
     public bool Action = false;
@@ -44,7 +45,12 @@ public class PressKeyOpenDoor : MonoBehaviour
                 {
                     IsOpen = true;
                     // Instruction.SetActive(false);
-                    AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                    if(AnimeObject) {
+                        AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                    }
+                    if (OtherAnimeObject) {
+                        OtherAnimeObject.GetComponent<Animator>().Play("DoorOpen");
+                    }
                     // ThisTrigger.SetActive(false);
                     // DoorOpenSound.Play();
                     Action = false;
@@ -53,7 +59,12 @@ public class PressKeyOpenDoor : MonoBehaviour
                 {
                     IsOpen = false;
                     // Instruction.SetActive(false);
-                    AnimeObject.GetComponent<Animator>().Play("DoorClose");
+                    if(AnimeObject) {
+                        AnimeObject.GetComponent<Animator>().Play("DoorClose");
+                    }
+                    if (OtherAnimeObject) {
+                        OtherAnimeObject.GetComponent<Animator>().Play("DoorClose");
+                    }
                     // ThisTrigger.SetActive(false);
                     // DoorOpenSound.Play();
                     Action = false;
