@@ -22,6 +22,8 @@ namespace PlayerControl
         private Vector2 _currentVelocity;
         private List<Vector3> _climbDirections;
 
+        private bool freeze = false;
+
         public bool IsWalking { get; set; }
         public bool IsRunning { get; set; }
 
@@ -60,8 +62,11 @@ namespace PlayerControl
         }
         private void FixedUpdate()
         {
-            Move();
-            StepClimb();
+            if (!freeze)
+            {
+                Move();
+                StepClimb();
+            }
         }
 
         private void Move()
@@ -122,6 +127,16 @@ namespace PlayerControl
         public Vector3 GetEulerAngles()
         {
             return transform.localRotation.eulerAngles;
+        }
+
+        public void Freeze()
+        {
+            this.freeze = true;
+        }
+
+        public void Unfreeze()
+        {
+            this.freeze = false;
         }
     }
 

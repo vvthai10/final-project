@@ -1,3 +1,4 @@
+using PlayerControl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ public class GhostController : MonoBehaviour
 {
     [Header("Attributes for chase and jumpscare")]
     public Transform player;
-    public float jumpScareOffset = 2f;
-    //public PlayerCam cam;
+    public float jumpScareOffset = 0.5f;
+    public Transform cam;
     public Transform jumpscareLookAtPoint;
     public Light jumpscareLight;
 
@@ -57,13 +58,13 @@ public class GhostController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //public void RotateTowardsCamera()
-    //{
-    //    Vector3 orgDirection = (cam.transform.position - transform.position).normalized;
-    //    orgDirection.z = 0;
-    //    Quaternion lookRotation = Quaternion.LookRotation(orgDirection);
-    //    cam.transform.rotation = lookRotation;
-    //}
+    public void RotateTowardsCamera()
+    {
+        Vector3 orgDirection = (cam.position - transform.position).normalized;
+        //orgDirection.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(orgDirection);
+        transform.rotation = lookRotation;
+    }
 
     public void StartChaseSequence()
     {
@@ -104,15 +105,16 @@ public class GhostController : MonoBehaviour
         navMeshAgent.enabled = false;
     }
 
-    //public void StartJumpscare()
-    //{
-    //    player.GetComponent<PlayerMovement>().Freeze();
-    //    cam.Freeze();
-    //    this.RotateTowardsCamera();
-    //    this.StartAttackAnimation();
-    //    cam.StartRotatingTowards(this.jumpscareLookAtPoint);
-    //    jumpscareLight.enabled = true;
-    //}
+    public void StartJumpscare()
+    {
+        player.GetComponent<PlayerControl.PlayerController>().Freeze();
+        FPSController playerFPSController = player.GetComponent<FPSController>();
+        playerFPSController.Freeze();
+        //this.RotateTowardsPlayer();
+        this.StartAttackAnimation();
+        playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
+        //jumpscareLight.enabled = true;
+    }
 
     IEnumerator StartChasingAfter(float seconds = 3)
     {
@@ -131,14 +133,14 @@ public class GhostController : MonoBehaviour
         if (!correctedRotationOnLink)
         {
             Vector3 direction = offMeshLinkData.endPos - offMeshLinkData.startPos;
-            Debug.Log($"direction: {direction}");
+            //Debug.Log($"direction: {direction}");
             // align with path's rotation towards
             transform.rotation = Quaternion.LookRotation(direction);
             
             // flip character on ceiling links
             if (IsOnCeilingNavMeshLink())
             {
-                Debug.Log("OnCeilingNavMeshLink");
+                //Debug.Log("OnCeilingNavMeshLink");
                 transform.Rotate(direction, 180, Space.World);
             }
 
@@ -147,7 +149,7 @@ public class GhostController : MonoBehaviour
         
         if (navMeshAgent.transform.position == endpos)
         {
-            Debug.Log("ending navlink");
+            //Debug.Log("ending navlink");
             correctedRotationOnLink = false;
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             navMeshAgent.CompleteOffMeshLink();
@@ -168,11 +170,11 @@ public class GhostController : MonoBehaviour
 
     private void Update()
     {
-        //if (chasing && Vector3.Distance(transform.position, player.position) <= jumpScareOffset)
-        //{
-        //    this.StopChasing();
-        //    this.StartJumpscare();
-        //}
+        if (chasing && Vector3.Distance(transform.position, player.position) <= jumpScareOffset)
+        {
+            this.StopChasing();
+            this.StartJumpscare();
+        }
 
         if (chasing)
         {

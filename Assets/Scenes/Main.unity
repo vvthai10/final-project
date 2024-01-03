@@ -1440,6 +1440,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212622731}
   m_CullTransparentMesh: 1
+--- !u!4 &212734266 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7668215348075687119, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+  m_PrefabInstance: {fileID: 1482278797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &220629598
 GameObject:
   m_ObjectHideFlags: 0
@@ -15050,6 +15055,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!108 &1327002311 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 894152087825848954, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+  m_PrefabInstance: {fileID: 1482278797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1332408781
 GameObject:
   m_ObjectHideFlags: 0
@@ -17012,7 +17022,27 @@ PrefabInstance:
     - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1309126478}
+      objectReference: {fileID: 8429099743541188786}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: jumpscareLight
+      value: 
+      objectReference: {fileID: 1327002311}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: jumpScareOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: jumpscareLookAtPoint
+      value: 
+      objectReference: {fileID: 212734266}
+    - target: {fileID: 7668215348075687119, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.588
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668215348075687119, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.091
+      objectReference: {fileID: 0}
     - target: {fileID: 7777347134195218003, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_Speed
       value: 5
@@ -21907,6 +21937,10 @@ PrefabInstance:
     - target: {fileID: 8067360307723789259, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758376429358334850, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
+      propertyPath: rotationSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

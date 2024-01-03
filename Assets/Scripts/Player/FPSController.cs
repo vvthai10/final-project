@@ -17,8 +17,18 @@ namespace PlayerControl
         [SerializeField] private float BottomLimit = 50f;
         [SerializeField] private float MouseSensitivity = 18.9f;
 
+        [Header("Fixed camera rotation towards a point")]
+        public float rotationSpeed = 1f;
+        private bool lockedRotating = false;
+        private Transform lockedRotatingTarget;
+        private Vector3 playerToTargetDirection;
+        private Vector3 camToTargetDirection;
+        private Quaternion playerToTargetLookRotation;
+        private Quaternion camToTargetLookRotation;
+
         private float _xRotation;
         private Rigidbody _playerRigidBody;
+        private bool freeze = false;
 
         private void Awake()
         {
@@ -34,7 +44,11 @@ namespace PlayerControl
         // Update is called once per frame
         void Update()
         {
-
+            if (lockedRotating)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, playerToTargetLookRotation, Time.deltaTime * rotationSpeed);
+                Camera.rotation = Quaternion.Slerp(Camera.rotation, camToTargetLookRotation, Time.deltaTime * rotationSpeed);
+            }
         }
 
         private void CameraMovement()
@@ -54,12 +68,36 @@ namespace PlayerControl
 
         private void LateUpdate()
         {
-            CameraMovement();
+            if (!freeze)
+            {
+                CameraMovement();
+            }
         }
 
         public float XRotation()
         {
             return _xRotation;
+        }
+
+        public void Freeze()
+        {
+            this.freeze = true;
+        }
+
+        public void Unfreeze()
+        {
+            this.freeze = false;
+        }
+
+        public void StartRotatingTowards(Transform target)
+        {
+            this.lockedRotating = true;
+            this.lockedRotatingTarget = target;
+            this.playerToTargetDirection = (target.position - transform.position).normalized;
+            playerToTargetDirection.y = 0;
+            this.playerToTargetLookRotation = Quaternion.LookRotation(playerToTargetDirection);
+            this.camToTargetDirection = (target.position - Camera.position).normalized;
+            this.camToTargetLookRotation = Quaternion.LookRotation(camToTargetDirection);
         }
     }
 
