@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_AgentTypeID: -1372625422
   m_StartPoint: {x: 0, y: -2.79, z: -2.71}
   m_EndPoint: {x: 0, y: 0.17, z: 2.38}
-  m_Width: 1.77
+  m_Width: 0
   m_CostModifier: 1
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
@@ -3498,7 +3498,7 @@ Transform:
   - {fileID: 1118681708}
   - {fileID: 398402324}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &444006656
 Mesh:
@@ -4543,7 +4543,7 @@ RectTransform:
   m_Children:
   - {fileID: 2042048449}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6324,7 +6324,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721367811
 GameObject:
@@ -8689,7 +8689,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015012891
 GameObject:
@@ -14117,7 +14117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003042484775555847, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8003042484775555847, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15832,7 +15832,7 @@ RectTransform:
   - {fileID: 1384666254}
   - {fileID: 1518927619}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16928,10 +16928,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 437732812}
     m_Modifications:
+    - target: {fileID: 894152087825848954, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 894152087825848954, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 894152087825848954, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1619402225845180692, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_Name
       value: Ghost Container
       objectReference: {fileID: 0}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1920584148}
     - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: player
       value: 
@@ -16950,11 +16966,11 @@ PrefabInstance:
       objectReference: {fileID: 212734266}
     - target: {fileID: 7668215348075687119, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.588
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7668215348075687119, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.091
+      value: 152.47
       objectReference: {fileID: 0}
     - target: {fileID: 7777347134195218003, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_Speed
@@ -18974,7 +18990,7 @@ Transform:
   m_Children:
   - {fileID: 2145214111}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1815665675
 MonoBehaviour:
@@ -19262,7 +19278,7 @@ RectTransform:
   - {fileID: 212622732}
   - {fileID: 2102618677}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19954,6 +19970,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: bae5e7a46718a954282201369a6764b5, type: 2}
   m_BuildHeightMesh: 0
+--- !u!4 &1920584148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7852398850671437391, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
+  m_PrefabInstance: {fileID: 8429099743541188785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1926414948
 Mesh:
   m_ObjectHideFlags: 0

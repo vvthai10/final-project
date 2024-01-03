@@ -61,7 +61,7 @@ public class GhostController : MonoBehaviour
     public void RotateTowardsCamera()
     {
         Vector3 orgDirection = (cam.position - transform.position).normalized;
-        //orgDirection.y = 0;
+        orgDirection.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(orgDirection);
         transform.rotation = lookRotation;
     }
@@ -110,10 +110,10 @@ public class GhostController : MonoBehaviour
         player.GetComponent<PlayerControl.PlayerController>().Freeze();
         FPSController playerFPSController = player.GetComponent<FPSController>();
         playerFPSController.Freeze();
-        //this.RotateTowardsPlayer();
+        this.RotateTowardsCamera();
         this.StartAttackAnimation();
         playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
-        //jumpscareLight.enabled = true;
+        jumpscareLight.enabled = true;
     }
 
     IEnumerator StartChasingAfter(float seconds = 3)
