@@ -15358,7 +15358,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2548465911891979741, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1043873379}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7259474779806513521, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8429099743541188802}
   m_SourcePrefab: {fileID: 100100000, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
 --- !u!4 &8429099743541188786 stripped
 Transform:
@@ -15370,3 +15373,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2548465911891979741, guid: 7c248dd352805704aa53c32b236b39f1, type: 3}
   m_PrefabInstance: {fileID: 8429099743541188785}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8429099743541188802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177814519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7120488c3344a448ff4446dac52b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenRate: 50
+  cooldown: 0
+  maxCooldown: 5
+  breathAudio: {fileID: 8300000, guid: 58ab8a588481f80429bdef9cb9054a26, type: 3}
+  outOfBreathAudio: {fileID: 8300000, guid: 0809714561eef3244961ac9872bb79ed, type: 3}
+  runningBreathAudio: {fileID: 8300000, guid: bcb76fb572259c540aa63c88ced1293b, type: 3}
