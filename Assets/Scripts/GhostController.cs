@@ -23,20 +23,25 @@ public class GhostController : MonoBehaviour
     private OffMeshLinkData offMeshLinkData;
     private bool correctedRotationOnLink = false;
 
+    public AudioSource leftFootAudioSource;
+    public AudioClip leftFootCrawling;
+    public AudioSource rightFootAudioSource;
+    public AudioClip rightFootCrawling;
+    public AudioSource leftHandAudioSource;
+    public AudioClip leftHandCrawling;
+    public AudioSource rightHandAudioSource;
+    public AudioClip rightHandCrawling;
+    public AudioSource jumpScareAudioSource;
+
+
 
     // animation state hashes
     private int zombieBitingHash = Animator.StringToHash("Zombie Biting");
     private int runningCrawlHash = Animator.StringToHash("Running Crawl");
     private int zombieAttackHash = Animator.StringToHash("Zombie Attack");
-    private int rightWallLeapHash = Animator.StringToHash("Right Wall Leap");
-    private int leftWallLeapHash = Animator.StringToHash("Left Wall Leap");
     private int injuredIdleHash = Animator.StringToHash("Injured Idle");
+    private int zombieScreamHash = Animator.StringToHash("Zombie Scream");
 
-    public enum WallLeapHorizontalDirection
-    {
-        Left,
-        Right
-    }
 
     private bool chasing = false;
 
@@ -45,7 +50,6 @@ public class GhostController : MonoBehaviour
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
         StartChasing();
-        //animator.Play(zombieBitingHash);
     }
 
     public void Show()
@@ -87,9 +91,9 @@ public class GhostController : MonoBehaviour
         animator.Play(zombieAttackHash);
     }
 
-    public void StartWallLeapAnimation(WallLeapHorizontalDirection direction)
+    public void StartJumpscareAnimation()
     {
-        
+        animator.Play(zombieScreamHash);
     }
 
     public void StartChasing()
@@ -105,16 +109,50 @@ public class GhostController : MonoBehaviour
         navMeshAgent.enabled = false;
     }
 
+    public void LeftHandSound()
+    {
+        leftHandAudioSource.PlayOneShot(leftHandCrawling);
+    }
+
+    public void RightHandSound()
+    {
+        rightHandAudioSource.PlayOneShot(rightHandCrawling);
+    }
+
+    public void LeftFootSound()
+    {
+        leftFootAudioSource.PlayOneShot(leftFootCrawling);
+    }
+
+    public void RightFootSound()
+    {
+        rightFootAudioSource.PlayOneShot(rightFootCrawling);
+    }
+
     public void StartJumpscare()
     {
         player.GetComponent<PlayerControl.PlayerController>().Freeze();
         FPSController playerFPSController = player.GetComponent<FPSController>();
         playerFPSController.Freeze();
+        player.gameObject.SetActive(false);
         this.RotateTowardsCamera();
-        this.StartAttackAnimation();
-        playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
+        CamerasManager.SwitchTo("JumpscareCamera");
+        this.StartJumpscareAnimation();
+        // hide player first
+        //playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
+        
+    }
+
+    public void EnableJumpscareLight()
+    {
         jumpscareLight.enabled = true;
     }
+
+    public void PlayJumpscareSound()
+    {
+        jumpScareAudioSource.Play();
+    }
+
 
     IEnumerator StartChasingAfter(float seconds = 3)
     {
@@ -185,5 +223,6 @@ public class GhostController : MonoBehaviour
         {
             HandleNavmeshLinkTraversal();
         }
+
     }
 }
