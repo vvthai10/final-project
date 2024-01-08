@@ -1,13 +1,19 @@
 using Manager;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PlayerControl
 {
     public class PlayerController : MonoBehaviour
-    {
+    { 
+        [Header ("VR Settings: ")]
+        [SerializeField]
+        private InputActionProperty moveAnimationAction;
+        [SerializeField]
+        private InputActionProperty runAnimationAction;
+        private bool _vrDetector = false;
+
         public static PlayerController instance;
         private Rigidbody _playerRigidBody;
         private InputManager _inputManager;
@@ -58,7 +64,7 @@ namespace PlayerControl
         // Update is called once per frame
         void Update()
         {
-
+            DetectVR();
         }
         private void FixedUpdate()
         {
@@ -74,18 +80,40 @@ namespace PlayerControl
             if(!_hasAnimator) return;
             float targetSpeed = _walkSpeed;
             IsWalking = true;
-            IsRunning = _inputManager.Run && PlayerStamina.instace.AbleToRun;
-            if (IsRunning)
+
+            if (_vrDetector)
             {
-                targetSpeed = _runSpeed;
+                IsRunning = runAnimationAction.action.ReadValue<float>() > 0 && PlayerStamina.instace.AbleToRun;
+                if (IsRunning)
+                {
+                    targetSpeed = _runSpeed;
+                }
+                Vector2 moveVector = moveAnimationAction.action.ReadValue<Vector2>();
+                if (moveVector == Vector2.zero)
+                {
+                    targetSpeed = 0f;
+                    IsRunning = IsWalking = false;
+                }
+                _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, moveVector.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+                _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, moveVector.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
             }
-            if (_inputManager.Move == Vector2.zero)
+            else
             {
-                targetSpeed = 0f;
-                IsRunning = IsWalking = false;
+                IsRunning = _inputManager.Run && PlayerStamina.instace.AbleToRun;
+                if (IsRunning)
+                {
+                    targetSpeed = _runSpeed;
+                }
+                if (_inputManager.Move == Vector2.zero)
+                {
+                    targetSpeed = 0f;
+                    IsRunning = IsWalking = false;
+                }
+                _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _inputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+                _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, _inputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
             }
-            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _inputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
-            _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, _inputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+            
+           
             float xVecDiff = _currentVelocity.x - _playerRigidBody.velocity.x;
             float zVecDiff = _currentVelocity.y - _playerRigidBody.velocity.z;
             
@@ -96,7 +124,7 @@ namespace PlayerControl
                 );
 
             // Set animator
-            _animator.SetFloat(_xVelHash, _currentVelocity.x); 
+            _animator.SetFloat(_xVelHash, _currentVelocity.x);
             _animator.SetFloat(_yVelHash, _currentVelocity.y);
         }
 
@@ -137,6 +165,18 @@ namespace PlayerControl
         public void Unfreeze()
         {
             this.freeze = false;
+        }
+
+        private void DetectVR()
+        {
+            if (moveAnimationAction != null && runAnimationAction != null)
+            {
+                _vrDetector = true;
+            }
+            else
+            {
+                _vrDetector = false;
+            }
         }
     }
 

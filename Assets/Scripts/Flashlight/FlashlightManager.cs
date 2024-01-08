@@ -1,6 +1,8 @@
+using PlayerControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlashlightManager : MonoBehaviour
 {
@@ -31,6 +33,6 @@ public class FlashlightManager : MonoBehaviour
         _whiteLight = flashlight.transform.GetChild(0);
         flashlight.layer = LayerMask.NameToLayer("Default");
         _whiteLight.gameObject.layer = LayerMask.NameToLayer("Default");
-        return true;
+       return true;
     }
 }

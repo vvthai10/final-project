@@ -1,12 +1,5 @@
-using Manager;
 using PlayerControl;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 
 namespace CharacterControl

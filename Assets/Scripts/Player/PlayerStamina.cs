@@ -39,7 +39,7 @@ namespace PlayerControl
 
         private void Update()
         {
-            Debug.Log("Stamina: " + _stamina);
+            //Debug.Log("Stamina: " + _stamina);
             cooldown -= Time.deltaTime;
             if (cooldown <= 0)
                 _canRegen = true;

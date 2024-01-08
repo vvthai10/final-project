@@ -84,10 +84,10 @@
                 {
                     "name": "",
                     "id": "e2017383-a3f6-4c46-acb1-012b8eece9cc",
-                    "path": "<XRHMD>/centerEyeRotation",
+                    "path": "<OculusTouchController>{RightHand}/deviceRotation",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Generic XR Controller",
+                    "groups": "Generic XR Controller;Continuous Move;Noncontinuous Move",
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": false
