@@ -68,8 +68,11 @@ public class FlashlightController : MonoBehaviour
         if(FlashlightManager.instance.LoadFlashlight())
         {
             Debug.Log("Load Flashlight");
+            if (!_haveFlashLight)
+            {
+                Manager.UIManager.instance.ShowUI(_switchFlashModeText, 1.5f);
+            }
             _haveFlashLight = true;
-            Manager.UIManager.instance.ShowUI(_switchFlashModeText, 1.5f);
 
             Vector3 playerEuler = PlayerController.instance.GetEulerAngles();
             _flashlight.transform.position = _pickUpPoint.transform.position;

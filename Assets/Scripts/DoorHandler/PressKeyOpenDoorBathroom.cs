@@ -33,8 +33,11 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        Instruction.SetActive(false);
-        Action = false;
+        if (collision.transform.tag == "Player")
+        {
+            Instruction.SetActive(false);
+            Action = false;
+        }
     }
 
 

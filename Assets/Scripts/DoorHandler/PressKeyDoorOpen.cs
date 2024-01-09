@@ -35,9 +35,20 @@ public class PressKeyOpenDoor : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        Instruction.SetActive(false);
-        Action = false;
+        if (collision.CompareTag("Player"))
+        {
+            Instruction.SetActive(false);
+            Action = false;
+        }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Instruction.SetActive(true);
+    //    }
+    //}
 
 
     void Update()
