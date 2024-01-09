@@ -114,10 +114,10 @@ namespace PlayerControl
 
         private void LateUpdate()
         {
-            if (!freeze)
-            {
-                CameraMovement();
-            }
+            //if (!freeze)
+            //{
+            //    CameraMovement();
+            //}
         }
 
         public float XRotation()
