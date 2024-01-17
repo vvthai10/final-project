@@ -33,6 +33,12 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
     }
 
 
+    public void OnKicked()
+    {
+        AnimeObject.GetComponent<Animator>().Play("BathRoomOpen");
+        IsOpen = true;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
