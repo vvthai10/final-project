@@ -16,6 +16,14 @@ public class GhostController : MonoBehaviour
     public Transform jumpscareLookAtPoint;
     public Light jumpscareLight;
 
+    [Space]
+    [Header("Footstep")]
+    public AudioSource leftFootAudioSource;
+    public AudioSource rightFootAudioSource;
+    public AudioClip leftFootstep;
+    public AudioClip rightFootstep;
+
+
     private Animator animator;
 
 
@@ -125,7 +133,7 @@ public class GhostController : MonoBehaviour
             //Debug.Log($"direction: {direction}");
             // align with path's rotation towards
             transform.rotation = Quaternion.LookRotation(direction);
-            
+
             // flip character on ceiling links
             if (IsOnCeilingNavMeshLink())
             {
@@ -135,7 +143,7 @@ public class GhostController : MonoBehaviour
 
             correctedRotationOnLink = true;
         }
-        
+
         if (navMeshAgent.transform.position == endpos)
         {
             //Debug.Log("ending navlink");
@@ -175,4 +183,20 @@ public class GhostController : MonoBehaviour
             HandleNavmeshLinkTraversal();
         }
     }
+
+    /*
+     * FOOTSTEP CALLBACKS
+     */
+
+    private void OnLeftFootLand()
+    {
+        leftFootAudioSource.PlayOneShot(leftFootstep);
+    }
+
+    private void OnRightFootLand()
+    {
+        rightFootAudioSource.PlayOneShot(rightFootstep);
+    }
+
+
 }
