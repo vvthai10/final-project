@@ -6,13 +6,14 @@ using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class GhostController : MonoBehaviour
 {
     [Header("Attributes for chase and jumpscare")]
     public Transform player;
     public float jumpScareOffset = 0.5f;
-    public Transform cam;
+    //public Transform cam;
     public Transform jumpscareLookAtPoint;
     public Light jumpscareLight;
 
@@ -22,6 +23,11 @@ public class GhostController : MonoBehaviour
     public AudioSource rightFootAudioSource;
     public AudioClip leftFootstep;
     public AudioClip rightFootstep;
+
+    [Space]
+    [Header("Jumpscare")]
+    public AudioSource jumpscareAudioSource;
+    public AudioClip jumpscareAudioClip;
 
 
     private Animator animator;
@@ -59,9 +65,9 @@ public class GhostController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void RotateTowardsCamera()
+    public void RotateTowardsPlayer()
     {
-        Vector3 orgDirection = (cam.position - transform.position).normalized;
+        Vector3 orgDirection = (player.position - transform.position).normalized;
         orgDirection.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(orgDirection);
         transform.rotation = lookRotation;
@@ -83,9 +89,9 @@ public class GhostController : MonoBehaviour
         animator.Play(drunkRunForwardHash);
     }
 
-    public void StartAttackAnimation()
+    private void StartJumpScareAnimation()
     {
-        animator.Play(zombieAttackHash);
+        animator.Play(zombieScreamHash);
     }
 
 
@@ -102,15 +108,28 @@ public class GhostController : MonoBehaviour
         navMeshAgent.enabled = false;
     }
 
+
+    /*
+     * JUMPSCARE
+     */
     public void StartJumpscare()
     {
         player.GetComponent<PlayerControl.PlayerController>().Freeze();
-        FPSController playerFPSController = player.GetComponent<FPSController>();
-        playerFPSController.Freeze();
-        this.RotateTowardsCamera();
-        this.StartAttackAnimation();
-        playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
+        player.GetComponent<FPSController>().Freeze();
+        player.gameObject.SetActive(false);
+        this.RotateTowardsPlayer();
+        CamerasManager.SwitchTo("JumpscareCamera");
+        StartJumpScareAnimation();
+    }
+
+    private void EnableJumpscareLight()
+    {
         jumpscareLight.enabled = true;
+    }
+
+    private void PlayJumpscareSound()
+    {
+        jumpscareAudioSource.PlayOneShot(jumpscareAudioClip);
     }
 
     IEnumerator StartChasingAfter(float seconds = 3)
@@ -197,6 +216,5 @@ public class GhostController : MonoBehaviour
     {
         rightFootAudioSource.PlayOneShot(rightFootstep);
     }
-
 
 }
