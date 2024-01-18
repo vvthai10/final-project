@@ -28,15 +28,9 @@ public class GhostController : MonoBehaviour
     private int zombieBitingHash = Animator.StringToHash("Zombie Biting");
     private int runningCrawlHash = Animator.StringToHash("Running Crawl");
     private int zombieAttackHash = Animator.StringToHash("Zombie Attack");
-    private int rightWallLeapHash = Animator.StringToHash("Right Wall Leap");
-    private int leftWallLeapHash = Animator.StringToHash("Left Wall Leap");
+    private int zombieScreamHash = Animator.StringToHash("Zombie Scream");
+    private int drunkRunForwardHash = Animator.StringToHash("Drunk Run Forward");
     private int injuredIdleHash = Animator.StringToHash("Injured Idle");
-
-    public enum WallLeapHorizontalDirection
-    {
-        Left,
-        Right
-    }
 
     private bool chasing = false;
 
@@ -45,7 +39,6 @@ public class GhostController : MonoBehaviour
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
         StartChasing();
-        //animator.Play(zombieBitingHash);
     }
 
     public void Show()
@@ -79,7 +72,7 @@ public class GhostController : MonoBehaviour
 
     public void StartChasingAnimation()
     {
-        animator.Play(runningCrawlHash);
+        animator.Play(drunkRunForwardHash);
     }
 
     public void StartAttackAnimation()
@@ -87,10 +80,6 @@ public class GhostController : MonoBehaviour
         animator.Play(zombieAttackHash);
     }
 
-    public void StartWallLeapAnimation(WallLeapHorizontalDirection direction)
-    {
-        
-    }
 
     public void StartChasing()
     {
