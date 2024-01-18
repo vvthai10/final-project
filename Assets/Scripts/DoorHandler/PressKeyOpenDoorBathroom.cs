@@ -37,6 +37,7 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+
             if (Action == true)
             {
                 if(!IsOpen)
