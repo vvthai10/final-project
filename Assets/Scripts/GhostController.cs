@@ -60,6 +60,7 @@ public class GhostController : MonoBehaviour
     private int drunkRunForwardHash = Animator.StringToHash("Drunk Run Forward");
     private int injuredIdleHash = Animator.StringToHash("Injured Idle");
     private int zombieKickingHash = Animator.StringToHash("Zombie Kicking");
+    private int openingHash = Animator.StringToHash("Opening");
 
     private bool chasing = false;
 
@@ -86,16 +87,31 @@ public class GhostController : MonoBehaviour
     }
 
 
-    private void CorrectHorizontalRotation(Vector3 direction)
+    private void CorrectParentHorizontalRotation(Vector3 direction)
     {
+        //ResetLocalTransform();
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = lookRotation;
+        navMeshAgent.transform.rotation = lookRotation;
+        //transform.rotation = lookRotation;
+    }
+
+    //private void CorrectHorizontalRotation(Vector3 direction)
+    //{
+    //    direction.y = 0;
+    //    Quaternion lookRotation = Quaternion.LookRotation(direction);
+    //    transform.rotation = lookRotation;
+    //}
+
+    private void ResetLocalTransform()
+    {
+        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void RotateTowardsPlayer()
     {
-        CorrectHorizontalRotation((player.position - transform.position).normalized);
+        CorrectParentHorizontalRotation((player.position - transform.position).normalized);
     }
 
     public void StartChaseSequence()
@@ -124,6 +140,10 @@ public class GhostController : MonoBehaviour
         animator.Play(zombieKickingHash);
     }
 
+    private void StartDoorOpenAnimation()
+    {
+        animator.Play(openingHash);
+    }
 
     public void StartChasing()
     {
@@ -173,22 +193,26 @@ public class GhostController : MonoBehaviour
         // previously not on any links
         if (linkTraversalStatus == LinkTraversalStatus.End)
         {
-            Debug.Log("End");
             offMeshLinkData = navMeshAgent.currentOffMeshLinkData;
             linkTraversalStatus = LinkTraversalStatus.Start;
             linkType = IsOnDoorNavMeshLink() ? LinkType.Door : LinkType.Normal;
             navMeshAgent.transform.position = offMeshLinkData.startPos;
-            CorrectHorizontalRotation(offMeshLinkData.endPos - offMeshLinkData.startPos);
+            ResetLocalTransform();
+
+            navMeshAgent.updateRotation = false;
+            CorrectParentHorizontalRotation((offMeshLinkData.endPos - offMeshLinkData.startPos).normalized);
         }
         // moving on link
         else if (linkTraversalStatus == LinkTraversalStatus.Mid)
         {
-            Debug.Log("Mid");
             Vector3 endpos = offMeshLinkData.endPos + Vector3.up * navMeshAgent.baseOffset;
             navMeshAgent.transform.position = Vector3.MoveTowards(navMeshAgent.transform.position, endpos, navMeshAgent.speed * Time.deltaTime);
             if (navMeshAgent.transform.position == endpos)
             {
                 navMeshAgent.CompleteOffMeshLink();
+                navMeshAgent.updateRotation = true;
+                // reset child object
+                transform.localPosition = new Vector3(0, 0, 0);
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
                 linkTraversalStatus = LinkTraversalStatus.End;
             }
@@ -196,27 +220,23 @@ public class GhostController : MonoBehaviour
         // starting on link
         else if (linkTraversalStatus == LinkTraversalStatus.Start)
         {
-            Debug.Log("Start");
             switch (linkType)
             {
-                case LinkType.Door: 
-                {
-                        Debug.Log("Door detected");
-                    StartDoorKickAnimation();
-                    linkTraversalStatus = LinkTraversalStatus.Idle;         
-                    break; 
-                }
+                case LinkType.Door:
+                    {
+                        DecideDoorOpenAnimation();
+                        linkTraversalStatus = LinkTraversalStatus.Idle;
+                        break;
+                    }
                 default:
-                {
-                        Debug.Log("Normal detected");
-                    linkTraversalStatus = LinkTraversalStatus.Mid;
-                    break;
-                }
+                    {
+                        linkTraversalStatus = LinkTraversalStatus.Mid;
+                        break;
+                    }
             }
         }
         else
         {
-            Debug.Log("Idle");
             // LinkTraversalStatus.Idle
         }
 
@@ -252,6 +272,20 @@ public class GhostController : MonoBehaviour
         //}
     }
 
+    private void DecideDoorOpenAnimation()
+    {
+        MobsDoorController doorController = navMeshAgent.navMeshOwner.GetComponent<MobsDoorController>();
+        bool isOutside = Vector3.Distance(transform.position, doorController.outsidePoint.position) < Vector3.Distance(transform.position, doorController.insidePoint.position);
+        if (isOutside)
+        {
+            StartDoorKickAnimation();
+        }
+        else
+        {
+            StartDoorOpenAnimation();
+        }
+    }
+
     private bool IsOnCeilingNavMeshLink()
     {
         try
@@ -277,6 +311,17 @@ public class GhostController : MonoBehaviour
     }
 
     private void OnKickFinished()
+    {
+        animator.Play(drunkRunForwardHash);
+        StartMidTraversalPhase();
+    }
+
+    private void OnDoorGrabbed()
+    {
+        navMeshAgent.navMeshOwner.GetComponent<MobsDoorController>().onDoorOpened?.Invoke();
+    }
+
+    private void OnDoorOpenAnimationFinished()
     {
         animator.Play(drunkRunForwardHash);
         StartMidTraversalPhase();

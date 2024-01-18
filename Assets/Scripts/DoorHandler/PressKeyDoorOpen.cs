@@ -48,6 +48,18 @@ public class PressKeyOpenDoor : MonoBehaviour
         IsOpen = true;
     }
 
+    public void OnDoorOpened()
+    {
+        if (AnimeObject)
+        {
+            AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+        }
+        if (OtherAnimeObject)
+        {
+            OtherAnimeObject.GetComponent<Animator>().Play("DoorOpen");
+        }
+        IsOpen = true;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
