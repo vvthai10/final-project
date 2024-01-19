@@ -1,13 +1,5 @@
-using Manager;
 using PlayerControl;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-
 
 namespace CharacterControl
 {
@@ -29,6 +21,11 @@ namespace CharacterControl
         [Header("Texts Displays: ")]
         [SerializeField] private GameObject _pickupText;
         [SerializeField] private GameObject _interactRadioText;
+        [SerializeField] private GameObject _newsText;
+
+        [Space]
+        [Header("Canvas Displays: ")]
+        [SerializeField] private GameObject newsCanvas;
 
         private Rigidbody _rigidbody;
         private Transform _transform;
@@ -36,6 +33,7 @@ namespace CharacterControl
         private RaycastHit _raycastHit;
         private const string _flashlightName = "Flashlight";
         private const string _radioName = "Radio";
+        private const string _newsName = "News";
         private void Awake()
         {
             instance = this;
@@ -43,18 +41,33 @@ namespace CharacterControl
 
         // Update is called once per frame
         void Update()
-        {
+        {   
             _cameraRay = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (Physics.Raycast(_cameraRay, out RaycastHit hitInfo, _interactDistance, _interactMask))
             {
-                
-                if (_pickupText && hitInfo.rigidbody.name == _flashlightName)
+                if (!hitInfo.rigidbody) return;
+                switch (hitInfo.rigidbody.name)
                 {
-                    Manager.UIManager.instance.ShowUI(_pickupText, 0);
-                }
-                if (_interactRadioText && hitInfo.rigidbody.name == _radioName)
-                {
-                    Manager.UIManager.instance.ShowUI(_interactRadioText, 0);
+                    case _flashlightName:
+                        {
+                            if (!_pickupText) return; 
+                            Manager.UIManager.instance.ShowUI(_pickupText, 0);
+                            break;
+                        }
+                    case _radioName:
+                        {
+                            if (!_interactRadioText) return;
+                            Manager.UIManager.instance.ShowUI(_interactRadioText, 0);
+                            break;
+                        }
+                    case _newsName:
+                        {
+                            if (!_newsText) return;
+                            Manager.UIManager.instance.ShowUI(_newsText, 0);
+                            break;
+                        }
+                    default:
+                        break;
                 }
             }
             _raycastHit = hitInfo; 
@@ -78,6 +91,11 @@ namespace CharacterControl
                     case _radioName:
                     {
                         // Do something...
+                        break;
+                    }
+                    case _newsName:
+                    {
+                            ItemCanvasManager.instance.Show();
                         break;
                     }
                     default:

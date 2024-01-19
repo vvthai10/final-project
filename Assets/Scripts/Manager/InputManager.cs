@@ -32,8 +32,8 @@ namespace Manager
 
         private void Awake()
         {
+            HideCursor();
             instance = this;
-            HideCursor();   
             _currentMap = playerInput.currentActionMap;
             _moveAction = _currentMap.FindAction("Move");
             _runAction = _currentMap.FindAction("Run");
