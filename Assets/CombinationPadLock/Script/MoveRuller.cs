@@ -8,6 +8,7 @@ public class MoveRuller : MonoBehaviour
     PadLockPassword _lockPassword;
     PadLockEmissionColor _pLockColor;
     PadlockSystem _system;
+    public GameObject Chest;
 
     [HideInInspector]
     public List <GameObject> _rullers = new List<GameObject>();
@@ -34,6 +35,8 @@ public class MoveRuller : MonoBehaviour
 
         foreach (GameObject r in _rullers)
         {
+            Debug.Log(r.gameObject.name);
+            Debug.Log(r.GetComponent<PadLockEmissionColor>() == null);
             r.transform.Rotate(-144, 0, 0, Space.Self);
         }
     }
@@ -43,9 +46,23 @@ public class MoveRuller : MonoBehaviour
         RotateRullers();
         if(_lockPassword.isPasswordCorrect())
         {
-            _system.ClosePadlock();
-            _system.InvalidPadlockSystem();
+
+            FindAnyObjectByType<PadlockCanvasController>().UnlockKey();
+            Invoke("OnPassWordCorrect", 2.5f);
+
+            //get key 
+
+
         }
+        
+    }
+
+    private void OnPassWordCorrect()
+    {
+        FindAnyObjectByType<PadlockSystem>().bathroomKey = true;
+        _system.ClosePadlock();
+        _system.InvalidPadlockSystem();
+        Chest.SetActive(false);
         
     }
 

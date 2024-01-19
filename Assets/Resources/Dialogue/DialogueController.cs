@@ -69,6 +69,16 @@ public class DialogueController : MonoBehaviour
         ClearText();
     }
 
+    public void StopAudio()
+    {
+        if(curScriptPlay != null)
+        {
+            StopCoroutine(curScriptPlay);
+        }
+        OnFinished();
+        audioSource.Stop();
+    }
+
     public void StartConversation()
     {
         AudioClip clip = audioClips[index];

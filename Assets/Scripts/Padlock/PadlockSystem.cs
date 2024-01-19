@@ -9,7 +9,10 @@ public class PadlockSystem : MonoBehaviour
 
     public GameObject padlockController;
     public GameObject mainCharacter;
+
     // Start is called before the first frame update
+    public bool bathroomKey = false;
+   
     void Start()
     {
         padLockPassword = FindAnyObjectByType<PadLockPassword>();
@@ -21,10 +24,19 @@ public class PadlockSystem : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            OpenPadlock();
-        }
+        //if(Input.GetKeyDown(KeyCode.Space) && !isActive)
+        //{
+        //    OpenPadlock();
+        //    isActive = true;
+        //    return;
+        //}
+
+        //if(Input.GetKeyDown(KeyCode.Space) && isActive)
+        //{
+        //    ClosePadlock();
+        //    isActive = false;
+        //    return;
+        //}
     }
 
     public void OpenPadlock()
@@ -41,7 +53,7 @@ public class PadlockSystem : MonoBehaviour
 
     public void InvalidPadlockSystem()
     {
-        gameObject.SetActive(false);
+       
     }
 
 }
