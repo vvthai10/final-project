@@ -12,8 +12,17 @@ public class PortalTeleporter : MonoBehaviour {
 	public GameObject DoorA;
     public GameObject DoorB;
 
-	// Update is called once per frame
-	void Update () {
+	private int cnt = 0;
+	public Texture[] listDeadlySin;
+	public Renderer picture;
+
+    private void Start()
+    {
+		picture.material.mainTexture = listDeadlySin[cnt];
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (playerIsOverlapping)
 		{
 			Vector3 portalToPlayer = player.position - transform.position;
@@ -33,7 +42,9 @@ public class PortalTeleporter : MonoBehaviour {
 				playerIsOverlapping = false;
 				DoorA.GetComponent<Animator>().Play("DoorClose");
 				DoorB.GetComponent<Animator>().Play("DoorClose");
-			}
+				cnt += 1;
+                picture.material.mainTexture = listDeadlySin[cnt];
+            }
 		}
 	}
 
