@@ -8116,13 +8116,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276728865}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.31, y: 2.97, z: 1.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &278313624
 GameObject:
@@ -25825,6 +25825,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1384666253}
     - target: {fileID: 8659001743702755238, guid: 98c1610fb41dfee499e6309202013651, type: 3}
+      propertyPath: MainCharacter
+      value: 
+      objectReference: {fileID: 1177814519}
+    - target: {fileID: 8659001743702755238, guid: 98c1610fb41dfee499e6309202013651, type: 3}
       propertyPath: PadLockCanvas
       value: 
       objectReference: {fileID: 135147122}
@@ -39920,3 +39924,4 @@ SceneRoots:
   - {fileID: 2104195287}
   - {fileID: 572361045}
   - {fileID: 446379245}
+  - {fileID: 276728868}
