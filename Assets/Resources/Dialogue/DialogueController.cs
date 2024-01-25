@@ -52,12 +52,7 @@ public class DialogueController : MonoBehaviour
         {
             if(audioSource.isPlaying)
             {
-                audioSource.Stop();
-                OnFinished();
-                if(curScriptPlay != null)
-                {
-                    StopCoroutine(curScriptPlay);
-                }
+                StopAudio();
             }
             index++;
         }
@@ -69,22 +64,29 @@ public class DialogueController : MonoBehaviour
         ClearText();
     }
 
+    //stop dialouge system when have event
     public void StopAudio()
     {
         if(curScriptPlay != null)
         {
             StopCoroutine(curScriptPlay);
         }
-        OnFinished();
-        audioSource.Stop();
+        ClearText();
+        if(audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+       
     }
 
     public void StartConversation()
     {
+        StopAudio();
         AudioClip clip = audioClips[index];
         Conversation conver = conversations[index];
         isSoundPlaying[index] = true;
-        audioSource.PlayOneShot(clip);
+        audioSource.clip = clip;
+        audioSource.Play();
         ShowDialogue(conver);
     }
 
@@ -105,7 +107,7 @@ public class DialogueController : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(1);
-        OnFinished();
+        StopAudio();
     }
 
     private void ShowDialogue(Conversation conversation)

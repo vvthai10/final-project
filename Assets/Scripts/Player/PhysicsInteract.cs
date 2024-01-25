@@ -90,7 +90,8 @@ namespace CharacterControl
                     }
                     case _radioName:
                     {
-                        // Do something...
+                            // Do something...
+                        FindObjectOfType<DialogueController>().StartConversation();
                         break;
                     }
                     case _newsName:

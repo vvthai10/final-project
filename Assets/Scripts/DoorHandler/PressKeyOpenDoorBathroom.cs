@@ -7,9 +7,14 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
     public GameObject Instruction;
     public GameObject AnimeObject;
     public GameObject ThisTrigger;
+    public GameObject PadLock;
+    public GameObject PadLockCanvas;
+    public GameObject MainCharacter;
     // public AudioSource DoorOpenSound;
     public bool Action = false;
     private bool IsOpen = false;
+    private bool IsLock = true;
+    private bool IsCanvasActive = false;
 
     void Start()
     {
@@ -35,8 +40,25 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
 
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Space) && IsCanvasActive)
+        {
+            FindAnyObjectByType<PassCode>().Delete();
+            IsCanvasActive = false;
+            MainCharacter.SetActive(true);
+            PadLockCanvas.SetActive(false);
+            return;
+        } 
+
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if(IsLock)
+            {
+                PadLockCanvas.SetActive(true);
+                IsCanvasActive = true;
+                MainCharacter.SetActive(false);
+                return;
+            }
 
             if (Action == true)
             {
@@ -61,5 +83,14 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
             }
         }
 
+    }
+
+    public void Unlock()
+    {
+        IsLock = false;
+        IsCanvasActive = false;
+        PadLockCanvas.SetActive(false);
+        PadLock.SetActive(false);
+        MainCharacter.SetActive(true);
     }
 }
