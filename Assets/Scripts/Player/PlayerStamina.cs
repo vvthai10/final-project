@@ -8,7 +8,7 @@ namespace PlayerControl
     {
         public static PlayerStamina instace;
         const float _maxStamina = 100f;
-        const float _runConsumeAmount = 25f;
+        const float _runConsumeAmount = 15f;
         float _stamina;
         bool _canRegen;
         public bool AbleToRun { get; set; }
@@ -16,7 +16,7 @@ namespace PlayerControl
         [Header ("Stamina Settings: ")]
         [SerializeField] private float regenRate = 50f;
         [SerializeField] private float cooldown;
-        [SerializeField] private float maxCooldown = 5.0f;
+        [SerializeField] private float maxCooldown = 3.5f;
 
         [Space]
         [Header("Breathing SFXs: ")]
@@ -39,7 +39,7 @@ namespace PlayerControl
 
         private void Update()
         {
-            Debug.Log("Stamina: " + _stamina);
+            //Debug.Log("Stamina: " + _stamina);
             cooldown -= Time.deltaTime;
             if (cooldown <= 0)
                 _canRegen = true;

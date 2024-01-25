@@ -22,6 +22,7 @@ namespace CharacterControl
         [SerializeField] private GameObject _pickupText;
         [SerializeField] private GameObject _interactRadioText;
         [SerializeField] private GameObject _newsText;
+        [SerializeField] private GameObject _bookText;
 
         [Space]
         [Header("Canvas Displays: ")]
@@ -34,6 +35,7 @@ namespace CharacterControl
         private const string _flashlightName = "Flashlight";
         private const string _radioName = "Radio";
         private const string _newsName = "News";
+        private const string _bookName = "Book";
         private void Awake()
         {
             instance = this;
@@ -66,6 +68,12 @@ namespace CharacterControl
                             Manager.UIManager.instance.ShowUI(_newsText, 0);
                             break;
                         }
+                    case _bookName:
+                        {
+                            if (!_bookText) return;
+                            Manager.UIManager.instance.ShowUI(_bookText, 0);
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -90,13 +98,18 @@ namespace CharacterControl
                     }
                     case _radioName:
                     {
-                            // Do something...
+                        // Do something...
                         FindObjectOfType<DialogueController>().StartConversation();
                         break;
                     }
                     case _newsName:
                     {
                             ItemCanvasManager.instance.Show();
+                        break;
+                    }
+                    case _bookName:
+                    {
+                        BookCanvasManager.instance.Show();
                         break;
                     }
                     default:

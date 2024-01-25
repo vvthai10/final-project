@@ -9,6 +9,7 @@ using UnityEngine.AI;
 
 public class GhostController : MonoBehaviour
 {
+    public static GhostController instance;
     [Header("Attributes for chase and jumpscare")]
     public Transform player;
     public float jumpScareOffset = 0.5f;
@@ -34,11 +35,16 @@ public class GhostController : MonoBehaviour
 
     private bool chasing = false;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
-        StartChasing();
+        gameObject.SetActive(false);
+        //StartChasing();
     }
 
     public void Show()
@@ -101,7 +107,7 @@ public class GhostController : MonoBehaviour
         playerFPSController.Freeze();
         this.RotateTowardsCamera();
         this.StartAttackAnimation();
-        playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
+        // playerFPSController.StartRotatingTowards(this.jumpscareLookAtPoint);
         jumpscareLight.enabled = true;
     }
 
@@ -155,6 +161,14 @@ public class GhostController : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void SendMainToStart()
+    {
+        PlayerController.instance.gameObject.transform.position = new Vector3(12.14f, -0.94f, -8.4f);
+        player.GetComponent<PlayerControl.PlayerController>().Unfreeze();
+        FPSController playerFPSController = player.GetComponent<FPSController>();
+        playerFPSController.Unfreeze();
     }
 
     private void Update()

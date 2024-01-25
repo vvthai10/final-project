@@ -25,6 +25,7 @@ public class HideInClothes : MonoBehaviour
             float rotationDiff = -Quaternion.Angle(transform.rotation, teleportInCloset.rotation);
             rotationDiff += 180;
             player.transform.Rotate(Vector3.up, rotationDiff);
+            GhostController.instance.StopChasing();
         }
         else if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && isInCloset)
         {

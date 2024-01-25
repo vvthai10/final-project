@@ -52,7 +52,7 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(IsLock)
+            if(IsLock && Action)
             {
                 PadLockCanvas.SetActive(true);
                 IsCanvasActive = true;
