@@ -41,7 +41,7 @@ public class ItemCanvasManager : MonoBehaviour
         if (_ghost)
         {
             _ghost.SetActive(true);
-            GhostController.instance.StartChasing();
+            GhostController.instance.SwitchState(GhostController.State.Chasing);
         }
     }
 }

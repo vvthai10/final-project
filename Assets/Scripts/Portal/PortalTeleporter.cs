@@ -16,6 +16,7 @@ public class PortalTeleporter : MonoBehaviour {
 	public Texture[] listDeadlySin;
 	public Renderer picture;
 
+	[SerializeField] private GameObject fatherObjects;
     private void Start()
     {
 		picture.material.mainTexture = listDeadlySin[cnt];
@@ -44,6 +45,10 @@ public class PortalTeleporter : MonoBehaviour {
 				DoorB.GetComponent<Animator>().Play("DoorClose");
 				cnt += 1;
                 picture.material.mainTexture = listDeadlySin[cnt];
+				if(fatherObjects && cnt == 9)
+				{
+					fatherObjects.SetActive(true);
+				}
             }
 		}
 	}
@@ -63,4 +68,6 @@ public class PortalTeleporter : MonoBehaviour {
 			playerIsOverlapping = false;
 		}
 	}
+
+	
 }

@@ -67,8 +67,8 @@ public class GhostController : MonoBehaviour
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
         visionField = GetComponent<GhostVisionField>();
-        //gameObject.SetActive(false);
-        StartChasing();
+        gameObject.SetActive(false);
+        //  StartChasing();
     }
 
     public void Show()
