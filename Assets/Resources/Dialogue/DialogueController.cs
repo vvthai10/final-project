@@ -135,6 +135,7 @@ public class DialogueController : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        StopAudio();
         audioSource.PlayOneShot(clip);
     }
 }
