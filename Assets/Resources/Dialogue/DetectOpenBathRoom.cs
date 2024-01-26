@@ -13,8 +13,8 @@ public class DetectOpenBathRoom : MonoBehaviour
         if(FindAnyObjectByType<PressKeyOpenDoorBathroom>().GetIsBathRoomOpen() && count <= 0)
         {
             count++;
-            FindAnyObjectByType<DialogueController>().StopAudio();
             FindAnyObjectByType<DialogueController>().PlayAudio(clip);
+            FindAnyObjectByType<DialogueController>().ShowMotherDeath();
         }
     }
 }

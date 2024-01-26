@@ -16,6 +16,9 @@ public class DialogueController : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public AudioSource audioSource;
 
+    public Conversation MotherDeath;
+    public Conversation ChoosenOne;
+
     private IEnumerator curScriptPlay;
     void Start()
     {
@@ -135,6 +138,17 @@ public class DialogueController : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        StopAudio();
         audioSource.PlayOneShot(clip);
+    }
+
+    public void ShowMotherDeath()
+    {
+        ShowDialogue(MotherDeath);
+    }
+
+    public void ShowChoosenOne()
+    {
+        ShowDialogue(ChoosenOne);
     }
 }
