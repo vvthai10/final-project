@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class FatherRecall : MonoBehaviour
 {
-    public Text uiText;  // Kéo và thả UI Text vào trường này trong Inspector
-    public float typingSpeed = 0.1f;  // Tốc độ hiển thị chữ
+    public static bool IsDone = false;
+    public GameObject uiPanel;
+    public Text uiText;
+    public float typingSpeed = 0.1f;
 
     private bool isTyping = false;
 
@@ -14,17 +16,30 @@ public class FatherRecall : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isTyping)
         {
+            Time.timeScale = 0f;
             isTyping = true;
+            uiPanel.SetActive(true);
             StartCoroutine(TypeText());
         }
     }
 
     IEnumerator TypeText()
     {
-        foreach (char letter in "Chữ muốn hiển thị")
+        float timeElapsed = 0f;
+        string fullText = "Chữ muốn hiển thị, khi dòng chữ này chạy xong thì mới cho dùng chuột để tắt";
+        int currentIndex = 0;
+
+        while (currentIndex < fullText.Length)
         {
-            uiText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            uiText.text += fullText[currentIndex];
+            currentIndex++;
+
+            // Chờ theo thời gian thực mà không bị ảnh hưởng bởi Time.timeScale
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        FatherRecall.IsDone = true;
     }
 }

@@ -53,7 +53,6 @@ public class PressKeyOpenDoor : MonoBehaviour
                     }
                     // ThisTrigger.SetActive(false);
                     // DoorOpenSound.Play();
-                    Action = false;
                 }
                 else
                 {
@@ -67,7 +66,6 @@ public class PressKeyOpenDoor : MonoBehaviour
                     }
                     // ThisTrigger.SetActive(false);
                     // DoorOpenSound.Play();
-                    Action = false;
                 }
             }
         }

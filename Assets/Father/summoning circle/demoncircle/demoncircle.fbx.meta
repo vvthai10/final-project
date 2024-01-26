@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: fd5176671902a5b40a1eb6e4133cb1a9
+guid: d678fa997a16537489eeab7d66e38c1f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Blood
-    second: {fileID: 2100000, guid: aa9220e35a530504a950209401733915, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
