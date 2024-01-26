@@ -19225,6 +19225,28 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2986ae037fb0ba84bb4b2022c01ad301, type: 3}
   dialogText: {fileID: 355529129}
   audioSource: {fileID: 691746351}
+  MotherDeath:
+    paragraph:
+    - "Welcome, dear listeners, to a chilling episode that unravels the harrowing
+      tale of a once serene household turned into a scene of unspeakable horror.
+      In the quiet confines of suburban life, a son, gripped by an inexplicable darkness,
+      has committed an unimaginable act \u2014 the murder of his own mother. As the
+      tendrils of mystery and malevolence intertwine, we delve into the sinister
+      secrets that shroud this family tragedy. Join me as we navigate through the
+      eerie corridors of this bone-chilling narrative, exploring the depths of darkness
+      that dwell within the human psyche. Stay tuned for a journey into the heart
+      of terror, where the line between reality and nightmare blurs. "
+  ChoosenOne:
+    paragraph:
+    - Ahhhhhhh, mortal souls entangled in the fragile threads of existence. Listen,
+      for the abyss speaks through me. A chosen one among you has been anointed by
+      the darkness
+    - ' In the realm of shadows, I have watched the dance of your lives, but one
+      among you bears the mark, the essence of the infernal. A teenage vessel, innocent
+      in appearance, yet chosen by the abyss for a destiny profound '
+    - "Behold the signs \u2013 the flickering lights, the whispers in the shadows.
+      The chosen one will be the catalyst for an age of darkness, a symphony of despair
+      conducted by forces unseen."
 --- !u!1001 &604284079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25622,7 +25644,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1759389299}
   m_HandleRect: {fileID: 1759389298}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
