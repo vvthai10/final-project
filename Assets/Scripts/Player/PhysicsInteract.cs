@@ -16,7 +16,7 @@ namespace CharacterControl
         [SerializeField] private Transform _interactTarget;
         [Space]
         [Header("Interact Settings: ")]
-        [SerializeField] private float _interactDistance = 10f;
+        [SerializeField] private float _interactDistance = 3f;
         [Space]
         [Header("Texts Displays: ")]
         [SerializeField] private GameObject _pickupText;
@@ -36,6 +36,10 @@ namespace CharacterControl
         private const string _radioName = "Radio";
         private const string _newsName = "News";
         private const string _bookName = "Book";
+
+        private bool pickFlashlight = false;
+        private Rigidbody _rigidbodyFlashlight;
+        private Transform _transformFlashlight;
         private void Awake()
         {
             instance = this;
@@ -94,6 +98,9 @@ namespace CharacterControl
                     case _flashlightName:
                     {
                         FlashlightController.instance.EnableFlashLight();
+                        pickFlashlight = true;
+                        _rigidbodyFlashlight = _rigidbody;
+                        _transformFlashlight = _transform;
                         break;
                     }
                     case _radioName:
@@ -104,7 +111,7 @@ namespace CharacterControl
                     }
                     case _newsName:
                     {
-                            ItemCanvasManager.instance.Show();
+                        ItemCanvasManager.instance.Show();
                         break;
                     }
                     case _bookName:
@@ -119,11 +126,11 @@ namespace CharacterControl
         }
         private void FixedUpdate()
         {            
-            if (_rigidbody && _rigidbody.gameObject.name == _flashlightName)
+            if (pickFlashlight && _transformFlashlight)
             {
                 Vector3 playerEuler = PlayerController.instance.GetEulerAngles();
-                _transform.position = _interactTarget.position;
-                _transform.transform.localEulerAngles = new Vector3(80f + FPSController.instance.XRotation(), playerEuler.y, playerEuler.z);
+                _transformFlashlight.position = _interactTarget.position;
+                _transformFlashlight.transform.localEulerAngles = new Vector3(80f + FPSController.instance.XRotation(), playerEuler.y, playerEuler.z);
             }
 
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,8 +23,9 @@ public class GamePauseMenu : MonoBehaviour {
         {		
 		  if (IsPaused = !IsPaused)
 		  {
+				Debug.Log("Pause");
 			Time.timeScale = 0.0f;
-			Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
 			IsPaused = false;
 			pauseMenuUi.SetActive(true);

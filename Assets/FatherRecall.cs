@@ -19,6 +19,7 @@ public class FatherRecall : MonoBehaviour
             Time.timeScale = 0f;
             isTyping = true;
             uiPanel.SetActive(true);
+
             StartCoroutine(TypeText());
         }
     }
@@ -38,7 +39,7 @@ public class FatherRecall : MonoBehaviour
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         FatherRecall.IsDone = true;
     }

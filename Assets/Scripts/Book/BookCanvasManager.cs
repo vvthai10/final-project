@@ -7,6 +7,7 @@ public class BookCanvasManager : MonoBehaviour
     public static BookCanvasManager instance;
     private CanvasGroup _canvasGroup;
 
+    private bool isShowing = false;
     private void Awake()
     {
         instance = this;
@@ -15,18 +16,24 @@ public class BookCanvasManager : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
+    private void Update()
+    {
+        if (isShowing)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+    }
     public void Show()
     {
         _canvasGroup.alpha = 1;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        PlayerControl.PlayerController.instance.Freeze();
+        isShowing = true;
     }
     public void Hide()
     {
-        _canvasGroup.alpha = 0;
+        isShowing = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        PlayerControl.PlayerController.instance.Unfreeze();
+        _canvasGroup.alpha = 0;
     }
 }
