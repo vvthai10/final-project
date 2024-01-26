@@ -93,4 +93,8 @@ public class PressKeyOpenDoorBathroom : MonoBehaviour
         PadLock.SetActive(false);
         MainCharacter.SetActive(true);
     }
+    public bool GetIsBathRoomOpen()
+    {
+        return IsOpen;
+    }
 }
