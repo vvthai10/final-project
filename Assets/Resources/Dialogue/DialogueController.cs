@@ -132,4 +132,9 @@ public class DialogueController : MonoBehaviour
         }
         return lengthInSecOfAudio / numberOfLetter;
     }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 }

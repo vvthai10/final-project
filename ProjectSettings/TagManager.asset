@@ -20,10 +20,9 @@ TagManager:
   - Interact
   - PauseMenu
   - Post Processing
-  - 
-  - 
-  - 
-  - 
+  - GhostSearchLayer
+  - Wall
+  - Door
   - 
   - 
   - 
