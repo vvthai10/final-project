@@ -138,8 +138,16 @@ public class DialogueController : MonoBehaviour
 
     public void PlayAudio(AudioClip clip)
     {
+        Debug.Log("Play audio 1" + clip.name);
         StopAudio();
+        Debug.Log("Play audio 2" + clip.name);
         audioSource.PlayOneShot(clip);
+
+        Debug.Log("Play audio 3" + clip.name);
+    }
+    public void PlayAudioTest()
+    {
+        Debug.Log("Play audio 1");
     }
 
     public void ShowMotherDeath()

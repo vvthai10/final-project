@@ -1887,8 +1887,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146004260}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.518, y: 0, z: 4.065}
+  m_LocalRotation: {x: -0, y: -0.9541243, z: -0, w: 0.29941085}
+  m_LocalPosition: {x: 7.73, y: 0, z: 0.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1896,7 +1896,7 @@ Transform:
   - {fileID: 1924962741}
   - {fileID: 2039016150}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -145.156, z: 0}
 --- !u!1 &149960969
 GameObject:
   m_ObjectHideFlags: 0
@@ -13083,7 +13083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c532de5a32659e545be83e9fb6603fdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5ade1caf56126a4ca373735838243d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14793,8 +14793,8 @@ Transform:
   m_GameObject: {fileID: 386867670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.08, y: 0.079, z: 2.18}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalPosition: {x: -0, y: 0.079, z: 0.97}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2039016150}
@@ -14842,7 +14842,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386867670}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15521,7 +15521,6 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
   m_IsActive: 0
 --- !u!4 &437732812
 Transform:
@@ -17298,7 +17297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223263696358140942, guid: 7e5f492315d4e1c48bfcfcc978cf90e0, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 32767
       objectReference: {fileID: 0}
     - target: {fileID: 224038825351931236, guid: 7e5f492315d4e1c48bfcfcc978cf90e0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -19398,60 +19397,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-    eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-    vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet
-    a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer
-    tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra
-    nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies
-    nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
-    Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
-    amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,
-    hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
-    sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget
-    eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec
-    sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit
-    cursus nunc,
-
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-    dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
-    justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-    ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-    Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate
-    eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-    enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-    viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
-    ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-    Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-    libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
-    luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-    Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit
-    amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
-    nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales,
-    augue velit cursus nunc,Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-    et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-    pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-    rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
-    mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-    Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-    vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
-    a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
-    imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
-    Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
-    sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
-    blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
-    tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis
-    ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
-    mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum
-    sodales, augue velit cursus nunc,'
+  m_text: "\nIn a horrifying and tragic incident that has left the community in shock,
+    a quiet suburban home has become the haunting backdrop for a gruesome crime.
+    The authorities are investigating the nightmarish scene where a young man, seemingly
+    devoid of reason, has brutally taken the lives\r\n\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4aa543ab733edb046ba44e7799d36a78, type: 2}
   m_sharedMaterial: {fileID: -1872884239227199595, guid: 4aa543ab733edb046ba44e7799d36a78, type: 2}
@@ -19478,13 +19427,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 110
+  m_fontSizeBase: 110
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -21286,7 +21235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223263696358140942, guid: 7e5f492315d4e1c48bfcfcc978cf90e0, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 223263696358140942, guid: 7e5f492315d4e1c48bfcfcc978cf90e0, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -44944,7 +44893,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1300002207
 RectTransform:
