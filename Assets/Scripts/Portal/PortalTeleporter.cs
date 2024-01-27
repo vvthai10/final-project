@@ -44,8 +44,9 @@ public class PortalTeleporter : MonoBehaviour {
 				DoorA.GetComponent<Animator>().Play("DoorClose");
 				DoorB.GetComponent<Animator>().Play("DoorClose");
 				cnt += 1;
-                picture.material.mainTexture = listDeadlySin[cnt];
-				if(fatherObjects && cnt == 9)
+                picture.material.mainTexture = listDeadlySin[cnt >= listDeadlySin.Length ? listDeadlySin.Length - 1:cnt];
+				Debug.Log("Number Of Passes: " + cnt);
+				if(fatherObjects && cnt == 1)
 				{
 					fatherObjects.SetActive(true);
 				}

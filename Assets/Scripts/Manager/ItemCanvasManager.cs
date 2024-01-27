@@ -9,6 +9,7 @@ public class ItemCanvasManager : MonoBehaviour
     public static ItemCanvasManager instance;
     private CanvasGroup _canvasGroup;
     [SerializeField] private GameObject _ghost;
+    [SerializeField] private GameObject _note;
     private bool isShowing = false;
     private void Awake()
     {
@@ -42,6 +43,11 @@ public class ItemCanvasManager : MonoBehaviour
         {
             _ghost.SetActive(true);
             GhostController.instance.SwitchState(GhostController.State.Chasing);
+            if (_note)
+            {
+                _note.SetActive(true);
+            }
+
         }
     }
 }

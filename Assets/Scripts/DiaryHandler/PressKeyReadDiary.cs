@@ -14,6 +14,7 @@ public class PressKeyReadDiary : MonoBehaviour
     {
         Interaction.SetActive(false);
         Diary.SetActive(false);
+        gameObject.SetActive(false);
         IsActive = false;
         InRange = false;
     }

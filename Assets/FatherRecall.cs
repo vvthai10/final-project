@@ -8,7 +8,7 @@ public class FatherRecall : MonoBehaviour
     public static bool IsDone = false;
     public GameObject uiPanel;
     public Text uiText;
-    public float typingSpeed = 0.1f;
+    public float typingSpeed = 0.35f;
 
     private bool isTyping = false;
 
@@ -27,8 +27,8 @@ public class FatherRecall : MonoBehaviour
     IEnumerator TypeText()
     {
         float timeElapsed = 0f;
-        string fullText = "Chữ muốn hiển thị, khi dòng chữ này chạy xong thì mới cho dùng chuột để tắt";
         int currentIndex = 0;
+        string fullText = "Through the eerie hallways of memory, I recall the evening that my father inadvertently let loose a dark force. Eerie incantations surged through the chamber, bringing shadows closer. The line dividing the worlds became less distinct as mysterious symbols filled the atmosphere. The ceremony, an outlaw dance, tied me to an ungodly force. My innocence was devoured in the symphony of demonic laughter, making me a receptacle for an evil I did not create. It was me, not him, who was chosen.";
 
         while (currentIndex < fullText.Length)
         {
