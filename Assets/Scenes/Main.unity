@@ -24005,16 +24005,9 @@ MonoBehaviour:
       flames of vanity. I am the echo of pride that resonates through the corridors
       of eternity, your guide through the tapestry of "Pride's Perdition" on Desolation
       Radio.
-    - 'Pride, the ethereal sin that birthed the fallen, an elusive tempest that winds
-      through the echoes of Lucifer''s rebellion. Join me as we unravel the threads
-      of desire that weave together pride and the fallen one. '
     - In the shadowy depths where echoes of rebellion linger, pride takes root. It's
       not a mere celebration of self but a malevolent force that, when consumed,
       transforms into the haunting rebellion that echoes through the annals of time.
-    - Envision a world where the lamentations of the fallen reverberate through the
-      void. Lucifer, the morning star whose radiance succumbed to the intoxicating
-      allure of pride, became the architect of his own demise, forever casting shadows
-      on the realms below.
     - Picture the allure of temptation, a whisper that beckons the soul to ascend
       beyond its destined place. Lucifer, the whisperer, weaves a tapestry of pride,
       inviting the lost to dance on the precipice of grandiosity.
@@ -24022,18 +24015,11 @@ MonoBehaviour:
       visage into a shattered reflection. Lucifer, the mirror-bearer, showcases the
       allure of self-exaltation, only to reveal fractured images that crumble in
       the face of an insatiable ego.
-    - Every celestial descent fueled by pride echoes with the triumphant footsteps
-      of the fallen. Lucifer, the sovereign of the prideful, descends into the depths,
-      a symphony of wings turned to echoes and a crown of stars transformed into
-      ashes.
-    - Yet, in the throne room of pride, victory is a hollow scepter. The sovereigns
-      of vanity may wear crowns of ethereal gold, but the jewels are forged from
-      the tears of the fallen, and the throne is built upon the shattered dreams
-      of those who dared to ascend too high.
-    - As we conclude this journey through the tapestry of "Pride's Perdition," remember
-      that the celestial echoes of Lucifer's rebellion linger in the corridors of
-      pride. This is Desolation Radio, where the flames of vanity cast shadows on
-      the proud.
+    - ' The name Heylel, meaning "morning star" (or, in Latin, Lucifer), was a name
+      for Attar, the god of the planet Venus in Canaanite mythology, who attempted
+      to scale the walls of the heavenly city, but was vanquished by the god of the
+      sun. The name is used in Isaiah 14:12 in metaphorical reference to the king
+      of Babylon. I repeat, Isaiah 1 4 1 2, 1 4 1 2 '
     - 'Until next we traverse the tapestry of sin, I am your guide through the shadows,
       signing off. '
   index: 0
@@ -24050,15 +24036,16 @@ MonoBehaviour:
   audioSource: {fileID: 691746351}
   MotherDeath:
     paragraph:
-    - "Welcome, dear listeners, to a chilling episode that unravels the harrowing
+    - Welcome, dear listeners, to a chilling episode that unravels the harrowing
       tale of a once serene household turned into a scene of unspeakable horror.
-      In the quiet confines of suburban life, a son, gripped by an inexplicable darkness,
-      has committed an unimaginable act \u2014 the murder of his own mother. As the
-      tendrils of mystery and malevolence intertwine, we delve into the sinister
-      secrets that shroud this family tragedy. Join me as we navigate through the
-      eerie corridors of this bone-chilling narrative, exploring the depths of darkness
-      that dwell within the human psyche. Stay tuned for a journey into the heart
-      of terror, where the line between reality and nightmare blurs. "
+    - "In the quiet confines of suburban life, a son, gripped by an inexplicable
+      darkness, has committed an unimaginable act \u2014 the murder of his own mother.
+      As the tendrils of mystery and malevolence intertwine, we delve into the sinister
+      secrets that shroud this family tragedy"
+    - ' Join me as we navigate through the eerie corridors of this bone-chilling
+      narrative, exploring the depths of darkness that dwell within the human psyche.
+      Stay tuned for a journey into the heart of terror, where the line between reality
+      and nightmare blurs. '
   ChoosenOne:
     paragraph:
     - Ahhhhhhh, mortal souls entangled in the fragile threads of existence. Listen,
@@ -30536,7 +30523,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1759389299}
   m_HandleRect: {fileID: 1759389298}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
