@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class GhostController : MonoBehaviour
 {
@@ -30,7 +31,15 @@ public class GhostController : MonoBehaviour
 
     [Header("Wandering Configs")]
     public Transform[] wanderPositions;
-    public List<int> visitedWanderPositions;
+    private List<int> visitedWanderPositions;
+
+    [Header("Audio")]
+    public AudioSource leftFootstep;
+    public AudioSource rightFootstep;
+    public AudioClip jumpscareAudioClip;
+    public AudioSource headAudio;
+    public AudioSource chaseAudio;
+
 
     private Animator animator;
 
@@ -68,7 +77,7 @@ public class GhostController : MonoBehaviour
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
         visionField = GetComponent<GhostVisionField>();
         gameObject.SetActive(false);
-        //  StartChasing();
+        SwitchState(State.Idle);
     }
 
     public void Show()
@@ -117,20 +126,25 @@ public class GhostController : MonoBehaviour
 
     public void StartChasing()
     {
+        //Debug.Log($"Start chasing called {DateTime.Now}");
         chasing = true;
         navMeshAgent.enabled = true;
         navMeshAgent.speed = chaseSpeed;
+        chaseAudio.Play();
         StartChasingAnimation();
     }
 
     public void StopChasing()
     {
+        //Debug.Log($"Stop chasing called {DateTime.Now}");
         chasing = false;
+        chaseAudio.Stop();
         //navMeshAgent.enabled = false;
     }
 
     public void StartWandering()
     {
+        //Debug.Log($"Start wandering called {DateTime.Now}");
         visitedWanderPositions = new List<int>();
         wandering = true;
         navMeshAgent.enabled = true;
@@ -140,6 +154,7 @@ public class GhostController : MonoBehaviour
 
     public void StopWandering()
     {
+        //Debug.Log($"Stop wandering called {DateTime.Now}");
         wandering = false;
     }
 
@@ -168,6 +183,7 @@ public class GhostController : MonoBehaviour
 
     public void StartIdling()
     {
+        //Debug.Log($"Start idling called {DateTime.Now}");
         idlingTimer = 0;
         idling = true;
         animator.Play(injuredIdleHash);
@@ -175,6 +191,7 @@ public class GhostController : MonoBehaviour
 
     public void StopIdling()
     {
+        //Debug.Log($"Stop idling called {DateTime.Now}");
         idling = false;
     }
 
@@ -202,6 +219,21 @@ public class GhostController : MonoBehaviour
         jumpscareLight.enabled = false;
     }
 
+    public void PlayLeftFootstep()
+    {
+        leftFootstep.Play();
+    }
+
+    public void PlayRightFootstep()
+    {
+        rightFootstep.Play();
+    }
+
+    public void PlayJumpscareAudio()
+    {
+        chaseAudio.PlayOneShot(jumpscareAudioClip);
+    }
+
     IEnumerator StartChasingAfter(float seconds = 3)
     {
         yield return new WaitForSeconds(seconds);
@@ -213,12 +245,12 @@ public class GhostController : MonoBehaviour
         switch (state)
         {
             case State.Chasing:
-                { StartChasing(); StopIdling(); StopWandering(); break; }
+                { StopIdling(); StopWandering(); StartChasing(); break; }
             case State.Wandering:
-                { StartWandering(); StopChasing(); StopIdling(); break; }
+                {  StopChasing(); StopIdling(); StartWandering(); break; }
             case State.Idle:
                 {
-                    StartIdling(); StopChasing(); StopWandering(); break;
+                     StopChasing(); StopWandering(); StartIdling(); break;
                 }
             case State.None:
                 {
@@ -294,6 +326,7 @@ public class GhostController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(headAudio.isPlaying);
         if (!stopUpdate)
         {
             if (!chasing && visionField.CanSeePlayer())
@@ -335,7 +368,6 @@ public class GhostController : MonoBehaviour
             if (wandering)
             {
                 int nVisited = visitedWanderPositions.Count;
-                Debug.Log(nVisited);
                 if (nVisited == 0)
                 {
                     int? next = GetNearestUnvisitedWanderPosition();
