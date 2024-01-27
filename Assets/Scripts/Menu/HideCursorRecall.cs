@@ -14,7 +14,6 @@ public class HideCursorRecall : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Father.SetActive(false);
         FatherRitual.SetActive(false);
-        Debug.Log(123);
     }
 
 }
