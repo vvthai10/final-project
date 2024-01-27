@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class GhostController : MonoBehaviour
 {
+    private static readonly System.Random random = new System.Random();
     public enum State
     {
         Chasing,
@@ -36,6 +37,7 @@ public class GhostController : MonoBehaviour
     public AudioClip jumpscareAudioClip;
     public AudioSource headAudio;
     public AudioSource chaseAudio;
+    public AudioClip[] playerSpotterAudioClips;
 
 
     private Animator animator;
@@ -73,8 +75,8 @@ public class GhostController : MonoBehaviour
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponentInParent<NavMeshAgent>();
         visionField = GetComponent<GhostVisionField>();
+        //SwitchState(State.Idle);
         gameObject.SetActive(false);
-        SwitchState(State.Idle);
     }
 
     public void Show()
@@ -321,6 +323,12 @@ public class GhostController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, jumpScareOffset);
     }
 
+    private void PlayOneOf(AudioSource src, AudioClip[] clips)
+    {
+        int idx = random.Next(0, clips.Length - 1);
+        src.PlayOneShot(clips[idx]);
+    }
+
     private void Update()
     {
         Debug.Log(headAudio.isPlaying);
@@ -328,6 +336,7 @@ public class GhostController : MonoBehaviour
         {
             if (!chasing && visionField.CanSeePlayer())
             {
+                PlayOneOf(chaseAudio, playerSpotterAudioClips);
                 SwitchState(State.Chasing);
                 return;
             }

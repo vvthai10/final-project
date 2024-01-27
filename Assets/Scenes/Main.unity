@@ -53279,6 +53279,26 @@ PrefabInstance:
       propertyPath: wanderPositions.Array.data[3]
       value: 
       objectReference: {fileID: 1822003206}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: playerSpotterAudioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: playerSpotterAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 170cc404efa18e64b9ea6a8c13012132, type: 3}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: playerSpotterAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cd81cad9cd70edf4baf9d194f2cfbb25, type: 3}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: playerSpotterAudioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: b4ba840a9821cb44ea3c0f429ebf1829, type: 3}
+    - target: {fileID: 1730852397077269408, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
+      propertyPath: playerSpotterAudioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 436ab04d740481845a71f047c3b4e495, type: 3}
     - target: {fileID: 1867136212572983357, guid: 37d3ec4610a7dfa4b87d635ccec7b25b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 37.48565
