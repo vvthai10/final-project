@@ -66,6 +66,8 @@ public class GhostController : MonoBehaviour
 
     private float idlingTimer = 0;
 
+    public bool _lastBite = false;
+    [SerializeField] private GameObject endMenu;
     private void Awake()
     {
         instance = this;
@@ -206,6 +208,11 @@ public class GhostController : MonoBehaviour
         CamerasController.instance.SwitchTo("JumpscareCamera");
         StartJumpscareAnimation();
         //jumpscareLight.enabled = true;
+        if (_lastBite)
+        {
+            _lastBite = false;
+            endMenu.SetActive(true);
+        }
     }
 
     public void EnableJumpscareLight()
@@ -331,7 +338,7 @@ public class GhostController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(headAudio.isPlaying);
+        Debug.Log("Ghost Vision: " + visionField.CanSeePlayer());
         if (!stopUpdate)
         {
             if (!chasing && visionField.CanSeePlayer())

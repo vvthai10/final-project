@@ -11,6 +11,7 @@ public class FatherRecall : MonoBehaviour
     public float typingSpeed = 0.35f;
 
     private bool isTyping = false;
+    [SerializeField] private GameObject _ghost;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,5 +43,6 @@ public class FatherRecall : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         FatherRecall.IsDone = true;
+        _ghost.SetActive(false);
     }
 }

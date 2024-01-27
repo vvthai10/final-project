@@ -42,7 +42,7 @@ public class ItemCanvasManager : MonoBehaviour
         if (_ghost)
         {
             _ghost.SetActive(true);
-            GhostController.instance.SwitchState(GhostController.State.Chasing);
+            GhostController.instance.SwitchState(GhostController.State.Idle);
             if (_note)
             {
                 _note.SetActive(true);
