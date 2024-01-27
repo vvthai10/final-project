@@ -23,11 +23,15 @@ public class DetectOpenBathRoom : MonoBehaviour
         }
         if (flag)
         {
-            if((DateTime.Now - _start).TotalSeconds >= 60)
+            if (!_ghost.activeInHierarchy)
             {
-                _ghost.SetActive(true);
-                GhostController.instance.SwitchState(GhostController.State.Chasing);
-                flag = false;
+                if ((DateTime.Now - _start).TotalSeconds >= 60)
+                {
+                    _ghost.SetActive(true);
+                    _ghost.GetComponent<GhostVisionField>().RenewFOVCoroutine();
+                    GhostController.instance.SwitchState(GhostController.State.Idle);
+                    flag = false;
+                }
             }
         }
     }

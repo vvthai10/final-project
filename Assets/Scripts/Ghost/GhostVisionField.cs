@@ -19,8 +19,9 @@ public class GhostVisionField : MonoBehaviour
     private bool fovRoutineBool = true;
     public Vector3 lastSeenPosition;
 
-    private void Start()
+    public void RenewFOVCoroutine()
     {
+        StopAllCoroutines();
         StartCoroutine(FOVRoutine());
     }
 
@@ -33,6 +34,7 @@ public class GhostVisionField : MonoBehaviour
     {
         float delay = 0.2f;
         WaitForSeconds wait = new WaitForSeconds(delay);
+
 
         while (fovRoutineBool)
         {

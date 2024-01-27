@@ -338,7 +338,6 @@ public class GhostController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Ghost Vision: " + visionField.CanSeePlayer());
         if (!stopUpdate)
         {
             if (!chasing && visionField.CanSeePlayer())

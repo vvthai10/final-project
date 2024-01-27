@@ -10,6 +10,7 @@ public class HideCursorRecall : MonoBehaviour
     
     private DateTime _start;
     private bool end = false;
+    private bool ghostEnabled = false;
     [SerializeField] private GameObject _ghost;
     public void HideCursor()
     {
@@ -25,12 +26,17 @@ public class HideCursorRecall : MonoBehaviour
     {
         if (end)
         {
-            if((DateTime.Now - _start).TotalSeconds >= 50)
+            if (!_ghost.activeInHierarchy)
             {
-                Debug.Log("Ghost enable");
-                _ghost.SetActive(true);
-                GhostController.instance.SwitchState(GhostController.State.Chasing);
-                GhostController.instance._lastBite = true;
+                if ((DateTime.Now - _start).TotalSeconds >= 50)
+                {
+                    Debug.Log("Ghost enable");
+                    _ghost.SetActive(true);
+                    _ghost.GetComponent<GhostVisionField>().RenewFOVCoroutine();
+                    GhostController.instance.SwitchState(GhostController.State.Idle);
+                    GhostController.instance._lastBite = true;
+                    ghostEnabled = true;
+                }
             }
         }
     }
