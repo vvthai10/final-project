@@ -46,7 +46,7 @@ public class PortalTeleporter : MonoBehaviour {
 				cnt += 1;
                 picture.material.mainTexture = listDeadlySin[cnt >= listDeadlySin.Length ? listDeadlySin.Length - 1:cnt];
 				Debug.Log("Number Of Passes: " + cnt);
-				if(fatherObjects && cnt == 1)
+				if(fatherObjects && cnt == 8)
 				{
 					fatherObjects.SetActive(true);
 				}
